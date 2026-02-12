@@ -5,4 +5,5 @@ rembg
 python-multipart
 pillow
 numpy
-onnxruntime-cpu
+onnxruntime
+aiofiles
