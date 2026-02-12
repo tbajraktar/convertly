@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+gunicorn
+rembg
+python-multipart
+pillow
+numpy
+onnxruntime-cpu
