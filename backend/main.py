@@ -20,9 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve static files from the 'frontend' directory
-# This allows you to access the website at http://localhost:8000/
-app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 
 @app.get("/api/health")
 async def health_check():
@@ -47,3 +44,7 @@ async def remove_bg(file: UploadFile = File(...)):
     except Exception as e:
         print(f"Error processing image: {e}")
         return Response(content=f"Error: {str(e)}", status_code=500)
+
+# Serve static files from the 'frontend' directory
+# This must be the LAST thing in the file so it doesn't block API routes
+app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
