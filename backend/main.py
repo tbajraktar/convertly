@@ -24,7 +24,7 @@ app.add_middleware(
 # This allows you to access the website at http://localhost:8000/
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 
-@app.get("/")
+@app.get("/api/health")
 async def health_check():
     return {"status": "online", "model": "u2netp"}
 
