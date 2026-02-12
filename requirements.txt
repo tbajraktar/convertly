@@ -4,6 +4,6 @@ gunicorn
 rembg
 python-multipart
 pillow
-numpy
+numpy<2.4.0
 onnxruntime
 aiofiles

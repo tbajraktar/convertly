@@ -131,15 +131,9 @@ function handleFile(file) {
     formData.append('file', file);
 
     // Send to backend
-    const apiHost = window.location.hostname;
-    // If we're on localhost or an IP, use that. Otherwise, default to your laptop's IP.
-    let apiUrl;
-    if (apiHost === 'localhost' || apiHost.match(/\d+\.\d+\.\d+\.\d+/)) {
-        apiUrl = `http://${apiHost}:8000/remove-bg`;
-    } else {
-        // This is for when you access via Netlify/External URL while the laptop is running the backend
-        apiUrl = `http://172.20.10.14:8000/remove-bg`;
-    }
+    // Since we now serve frontend and backend from the same port (8000), 
+    // we can use a simpler URL logic.
+    const apiUrl = window.location.origin === 'null' ? 'http://localhost:8000/remove-bg' : `${window.location.origin}/remove-bg`;
 
     fetch(apiUrl, {
         method: 'POST',

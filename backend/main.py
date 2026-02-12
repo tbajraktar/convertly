@@ -1,10 +1,10 @@
 from fastapi import FastAPI, UploadFile, File, Response
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from rembg import remove, new_session
 from PIL import Image
 import io
 import os
-
 app = FastAPI()
 
 # Pre-load the session with lightweight model (u2netp) for low-memory environments
@@ -19,6 +19,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve static files from the 'frontend' directory
+# This allows you to access the website at http://localhost:8000/
+app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 
 @app.get("/")
 async def health_check():
