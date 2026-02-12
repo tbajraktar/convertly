@@ -2,9 +2,15 @@ from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from rembg import remove, new_session
-from PIL import Image
 import io
 import os
+import gc
+from PIL import Image
+
+# AGGRESSIVE MEMORY OPTIMIZATION FOR RENDER (512MB)
+# Limit threads used by ONNX/AI models to reduce memory footprint
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
 app = FastAPI()
 
 # Pre-load the session with lightweight model (u2netp) for low-memory environments
@@ -40,8 +46,14 @@ async def remove_bg(file: UploadFile = File(...)):
         output_image.save(img_byte_arr, format='PNG')
         img_byte_arr = img_byte_arr.getvalue()
         
+        # Explicitly clean up memory
+        del input_image
+        del output_image
+        gc.collect()
+        
         return Response(content=img_byte_arr, media_type="image/png")
     except Exception as e:
+        gc.collect()
         print(f"Error processing image: {e}")
         return Response(content=f"Error: {str(e)}", status_code=500)
 
