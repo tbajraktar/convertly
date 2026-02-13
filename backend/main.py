@@ -3,7 +3,7 @@ import os
 # These MUST be set before importing rembg/onnxruntime
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
-os.environ["ORT_LOGGING_LEVEL"] = "3" # Reduce onnxruntime logging memory
+os.environ["ORT_LOGGING_LEVEL"] = "3"
 
 import io
 import gc
@@ -15,9 +15,15 @@ from PIL import Image
 
 app = FastAPI()
 
-# Pre-load the session with lightweight model (u2netp) for low-memory environments
-print("Loading AI model (u2netp)...")
-session = new_session("u2netp")
+# Global session variable for lazy loading
+session = None
+
+def get_session():
+    global session
+    if session is None:
+        print("Lazy loading AI model (u2netp)...")
+        session = new_session("u2netp")
+    return session
 
 app.add_middleware(
     CORSMiddleware,
@@ -29,7 +35,8 @@ app.add_middleware(
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "online", "model": "u2netp"}
+    # Only check if server is up, don't load model yet
+    return {"status": "online", "model_loaded": session is not None}
 
 @app.post("/remove-bg")
 async def remove_bg(file: UploadFile = File(...)):
@@ -37,23 +44,23 @@ async def remove_bg(file: UploadFile = File(...)):
     try:
         input_image = Image.open(file.file)
         
-        # RESIZE IF TOO LARGE (Max 1200px)
-        # This is the most effective way to prevent OOM
-        max_size = 1200
+        # AGGRESSIVE RESIZE for 512MB RAM
+        # 1000px is the safe limit for most images on 512MB
+        max_size = 1000
         if max(input_image.size) > max_size:
-            print(f"Resizing image from {input_image.size} to fit {max_size}px")
+            print(f"Resizing image to fit {max_size}px")
             input_image.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
         
-        print("Processing image...")
-        # Use the pre-loaded session
-        output_image = remove(input_image, session=session)
-        print("Background removed successfully")
+        print("Processing...")
+        # Lazy load model here
+        ai_session = get_session()
+        output_image = remove(input_image, session=ai_session)
         
         img_byte_arr = io.BytesIO()
         output_image.save(img_byte_arr, format='PNG')
         result_data = img_byte_arr.getvalue()
         
-        # Explicitly clean up memory
+        # Cleanup
         del input_image
         del output_image
         gc.collect()
@@ -61,9 +68,8 @@ async def remove_bg(file: UploadFile = File(...)):
         return Response(content=result_data, media_type="image/png")
     except Exception as e:
         gc.collect()
-        print(f"Error processing image: {e}")
+        print(f"Error: {e}")
         return Response(content=f"Error: {str(e)}", status_code=500)
 
-# Serve static files from the 'frontend' directory
-# This must be the LAST thing in the file so it doesn't block API routes
+# Serve static files LAST
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
