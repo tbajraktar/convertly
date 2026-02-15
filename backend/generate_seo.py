@@ -566,6 +566,64 @@ def generate_use_cases():
             f.write(content)
         print(f"Created {filename}")
 
+def generate_root_index():
+    print("Generating root index.html...")
+    
+    # Hreflang
+    hreflangs = f'<link rel="alternate" hreflang="en" href="{BASE_URL}/" />\n'
+    for lang in LANGUAGES.keys():
+        hreflangs += f'    <link rel="alternate" hreflang="{lang}" href="{BASE_URL}/{lang}/" />\n'
+
+    # Footer Links
+    use_case_links_str = '\n'.join([f'<a href="{k}.html">{v["title"].split("-")[0].strip()}</a>' for k,v in USE_CASES.items()])
+    lang_links_str = '\n'.join([f'<a href="{k}/index.html">{v["name"]}</a>' for k,v in LANGUAGES.items()])
+
+    content = HTML_TEMPLATE.format(
+        lang_code="en",
+        title="Free Background Remover - Convertly",
+        description="Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results.",
+        keywords="background remover, remove background, ai background removal, transparent background, free background remover, convertly",
+        url=f"{BASE_URL}/",
+        hreflang_tags=hreflangs,
+        css_path="",
+        home_link="index.html",
+        h1="Remove <span class=\"gradient-text\">Background</span>",
+        subtitle="100% Automatic and <span class=\"badge-free\">Free</span>",
+        main_icon="far fa-image",
+        upload_btn="Upload Image",
+        drop_text="or drop your image here",
+        processing_text="Removing background...",
+        download_hd="Watch Ad to Download HD (Free)",
+        download_free="Download Standard (Free)",
+        feat1_title="Auto Detection",
+        feat1_desc="Our AI detects subjects in milliseconds.",
+        feat2_title="High Quality",
+        feat2_desc="Preserve original quality.",
+        feat3_title="Fast & Free",
+        feat3_desc="Instant processing without registration.",
+        js_path="",
+        # Footer
+        footer_expander_text="Explore Convertly",
+        footer_col1_title="Product",
+        footer_uploads="Uploads",
+        footer_logo_remover="Logo Remover",
+        logo_remover_link="logos.html",
+        footer_col2_title="Use Cases",
+        footer_use_cases=use_case_links_str,
+        footer_col3_title="Languages",
+        footer_languages=lang_links_str,
+        footer_col4_title="Company",
+        footer_terms="Terms",
+        footer_contact="Contact",
+        footer_refund="Refunds",
+        footer_faq="FAQ"
+    )
+    
+    with open(INDEX_PATH, "w", encoding="utf-8") as f:
+        f.write(content)
+    print("Created index.html")
+
+
 def generate_languages():
     print("Generating language pages...")
     
@@ -665,6 +723,7 @@ def update_sitemap():
     print("Sitemap updated.")
 
 if __name__ == "__main__":
+    generate_root_index()
     generate_use_cases()
     generate_languages()
     update_sitemap()

@@ -66,9 +66,12 @@ function handleFile(file) {
     formData.append('file', file);
 
     // Send to backend
-    // Since we now serve frontend and backend from the same port (8000), 
-    // we can use a simpler URL logic.
-    const apiUrl = window.location.origin === 'null' ? 'http://localhost:8000/remove-bg' : `${window.location.origin}/remove-bg`;
+    // Determine API URL
+    let apiUrl = `${window.location.origin}/remove-bg`;
+    if (window.location.origin === 'null' || window.location.protocol === 'file:') {
+        apiUrl = 'http://127.0.0.1:8000/remove-bg';
+    }
+    console.log('Uploading to:', apiUrl);
 
     fetch(apiUrl, {
         method: 'POST',
@@ -100,7 +103,7 @@ function handleFile(file) {
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while processing the image.');
+            alert(`Error: ${error.message}. Ensure the backend is running.`);
             resetUI();
         });
 }
