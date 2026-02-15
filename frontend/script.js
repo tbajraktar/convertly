@@ -257,4 +257,18 @@ function resetUI() {
         URL.revokeObjectURL(resultImage.src);
         resultImage.src = '';
     }
+
+}
+
+// Footer Toggle
+const footerToggleBtn = document.getElementById('footer-toggle-btn');
+const footerDirectory = document.getElementById('footer-directory');
+const footerToggleIcon = document.getElementById('footer-toggle-icon');
+
+if (footerToggleBtn && footerDirectory) {
+    footerToggleBtn.addEventListener('click', () => {
+        const isHidden = footerDirectory.style.display === 'none';
+        footerDirectory.style.display = isHidden ? 'block' : 'none';
+        footerToggleIcon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
 }

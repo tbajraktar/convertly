@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertly - Removedor de Fundo IA Grátis</title>
+    <meta name="description" content="Remova fundos automaticamente em 5 segundos. Grátis e alta qualidade.">
+    <meta name="keywords" content="background remover pt, remove background">
+    <meta name="author" content="Convertly">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://convertly.up.railway.app/pt/">
+    <meta property="og:title" content="Convertly - Removedor de Fundo IA Grátis">
+    <meta property="og:description" content="Remova fundos automaticamente em 5 segundos. Grátis e alta qualidade.">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://convertly.up.railway.app/pt/">
+    <meta property="twitter:title" content="Convertly - Removedor de Fundo IA Grátis">
+    <meta property="twitter:description" content="Remova fundos automaticamente em 5 segundos. Grátis e alta qualidade.">
+    <link rel="canonical" href="https://convertly.up.railway.app/pt/">
+    <link rel="alternate" hreflang="en" href="https://convertly.up.railway.app/" />
+    <link rel="alternate" hreflang="fr" href="https://convertly.up.railway.app/fr/" />
+    <link rel="alternate" hreflang="it" href="https://convertly.up.railway.app/it/" />
+    <link rel="alternate" hreflang="es" href="https://convertly.up.railway.app/es/" />
+    <link rel="alternate" hreflang="pt" href="https://convertly.up.railway.app/pt/" />
+    <link rel="alternate" hreflang="nl" href="https://convertly.up.railway.app/nl/" />
+    <link rel="alternate" hreflang="ru" href="https://convertly.up.railway.app/ru/" />
+    <link rel="alternate" hreflang="de" href="https://convertly.up.railway.app/de/" />
+
+    <link rel="stylesheet" href="../style.css?v=1.2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Convertly",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Remova fundos automaticamente em 5 segundos. Grátis e alta qualidade.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446489406681308" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <nav>
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
+                <span>CONVERTLY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="view-uploads" class="nav-btn">Uploads</a>
+            <a href="#" id="view-pricing" class="nav-btn-pricing">Pricing</a>
+        </div>
+    </nav>
+    <div class="modal-overlay" id="pricing-modal">
+        <div class="pricing-content">
+            <button class="close-modal" id="close-pricing">&times;</button>
+            <div class="pricing-header">
+                <h2>Escolha seu plano</h2>
+                <p>Simple pricing for everyone.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Grátis</h3>
+                    <div class="price">0€<span>/mês</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Standard</li>
+                        <li><i class="fas fa-check"></i> Ads</li>
+                        <li><i class="fas fa-check"></i> Watermarked</li>
+                    </ul>
+                    <button class="pricing-btn secondary" id="continue-free">Current</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge-featured">MELHOR VALOR</div>
+                    <h3>Pro</h3>
+                    <div class="price">2€<span>/mês</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> HD</li>
+                        <li><i class="fas fa-check"></i> <strong>No Ads</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>No Watermarks</strong></li>
+                        <li><i class="fas fa-check"></i> Priority</li>
+                    </ul>
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="hero">
+            <h1>Remover <span class="gradient-text">Fundo</span></h1>
+            <p class="subtitle">100% Automático e <span class="badge-free">Grátis</span></p>
+            <div class="upload-container" id="upload-container">
+                <div class="upload-content" id="upload-content">
+                    <div class="upload-icon"><i class="far fa-image"></i></div>
+                    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Carregar Imagem</button>
+                    <p class="drop-text">ou solte sua foto aqui</p>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+                <div class="processing-content" id="processing-content" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Removendo fundo...</p>
+                </div>
+                <div class="result-content" id="result-content" style="display: none;">
+                    <img id="result-image" src="" alt="Processed Image">
+                    <div class="result-actions">
+                        <button class="download-btn" id="download-hd-btn">Baixar HD <i class="fas fa-play-circle" style="font-size: 0.8em; margin-left: 5px;"></i></button>
+                        <button class="download-watermark-btn" id="download-watermark-btn">Grátis com Marca D'água</button>
+                        <button class="reset-btn" id="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ad-modal" class="ad-modal" style="display: none;">
+             <div class="ad-content">
+                <div class="ad-header">
+                    <h3>Watch Ad</h3>
+                    <button class="close-ad" id="close-ad">&times;</button>
+                </div>
+                <div class="ad-body">
+                    <div class="ad-placeholder">
+                        <div class="ad-timer" id="ad-timer">5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Detecção Auto</h3>
+                <p>Nossa IA detecta assuntos em milissegundos.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Alta Qualidade</h3>
+                <p>Preserve a qualidade original de suas fotos.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="far fa-clock"></i></div>
+                <h3>Rápido e Grátis</h3>
+                <p>Processamento instantâneo sem registro.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button id="footer-toggle-btn" class="footer-toggle-btn" onclick="toggleFooter()">
+            <span>Explore Convertly</span>
+            <i class="fas fa-chevron-down" id="footer-toggle-icon"></i>
+        </button>
+        
+        <div id="footer-directory" class="footer-directory" style="display: none;">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="../index.html#">Uploads</a>
+                    <a href="../index.html#view-pricing">Pricing</a>
+                    <a href="../logos.html">Logo Remover</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Use Cases</h4>
+                    <a href="../cars.html">Free Car Background Remover</a>
+<a href="../jewelry.html">Jewelry Background Remover</a>
+<a href="../shoes.html">Shoe Background Remover</a>
+<a href="../furniture.html">Furniture Background Remover</a>
+<a href="../animals.html">Pet Background Remover</a>
+<a href="../people.html">Portrait Background Remover</a>
+<a href="../real-estate.html">Real Estate Background Remover</a>
+<a href="../graphics.html">Graphic Background Remover</a>
+<a href="../signatures.html">Signature Background Remover</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Languages</h4>
+                    <a href="../index.html">English</a>
+<a href="../fr/index.html">Français</a>
+<a href="../it/index.html">Italiano</a>
+<a href="../es/index.html">Español</a>
+<a href="../nl/index.html">Nederlands</a>
+<a href="../ru/index.html">Русский</a>
+<a href="../de/index.html">Deutsch</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">Termos</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Reembolso</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2024 CONVERTLY. Created with Love.</p>
+    </footer>
+
+    <script>
+        function toggleFooter() {
+            const dir = document.getElementById('footer-directory');
+            const icon = document.getElementById('footer-toggle-icon');
+            if (dir.style.display === 'none') {
+                dir.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dir.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>
