@@ -595,14 +595,8 @@ def generate_root_index():
         upload_btn="Upload Image",
         drop_text="or drop your image here",
         processing_text="Removing background...",
-        # Before/After Visual
-        comparison_visual="""
-        <div class="c-compare" style="--value:50%;">
-            <img class="c-compare__left" src="assets/sneaker.jpg" alt="Original" />
-            <img class="c-compare__right" src="assets/sneaker-transparent.png" alt="Removed Background" />
-            <input type="range" class="c-compare__range" min="0" max="100" value="50" oninput="this.parentElement.style.setProperty('--value', this.value + '%')" aria-label="Compare original and processed image" />
-        </div>
-        """,
+        # Before/After Visual Removed
+        comparison_visual="",
         download_hd="Watch Ad to Download HD (Free)",
         download_free="Download Standard (Free)",
         feat1_title="Auto Detection",
