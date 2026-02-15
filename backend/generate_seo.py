@@ -406,10 +406,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <div class="result-actions">
                         <button class="download-btn" id="download-hd-btn">{download_hd} <i class="fas fa-play-circle" style="font-size: 0.8em; margin-left: 5px;"></i></button>
                         <button class="download-watermark-btn" id="download-watermark-btn">{download_free}</button>
-                        <button class="reset-btn" id="reset-btn">Reset</button>
+                        <button class="reset-btn" id="reset-btn">Upload Another</button>
                     </div>
                 </div>
             </div>
+            {comparison_visual}
         </div>
         <div id="ad-modal" class="ad-modal" style="display: none;">
              <div class="ad-content">
@@ -535,6 +536,7 @@ def generate_use_cases():
             upload_btn="Upload Image",
             drop_text="or drop your image here",
             processing_text="Removing background...",
+            comparison_visual="", # No visual on use-case pages to avoid context clash (e.g. sneaker on car page)
             download_hd="Watch Ad to Download HD (Free)",
             download_free="Download Standard (Free)",
             feat1_title=feat1_t,
@@ -593,6 +595,14 @@ def generate_root_index():
         upload_btn="Upload Image",
         drop_text="or drop your image here",
         processing_text="Removing background...",
+        # Before/After Visual
+        comparison_visual="""
+        <div class="c-compare" style="--value:50%;">
+            <img class="c-compare__left" src="assets/sneaker.jpg" alt="Original" />
+            <img class="c-compare__right" src="assets/sneaker-transparent.png" alt="Removed Background" />
+            <input type="range" class="c-compare__range" min="0" max="100" value="50" oninput="this.parentElement.style.setProperty('--value', this.value + '%')" aria-label="Compare original and processed image" />
+        </div>
+        """,
         download_hd="Watch Ad to Download HD (Free)",
         download_free="Download Standard (Free)",
         feat1_title="Auto Detection",
@@ -664,6 +674,7 @@ def generate_languages():
             upload_btn=data["upload_btn"],
             drop_text=data["drop_text"],
             processing_text=data["processing"],
+            comparison_visual="", # No visual on translated pages for now to save space/complexity
             download_hd=data["download_hd"],
             download_free=data["download_free"],
             feat1_title=data["features"][0]["title"],
