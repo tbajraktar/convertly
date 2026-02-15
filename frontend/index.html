@@ -76,46 +76,11 @@
         </div>
         <div class="nav-links">
             <a href="#" id="view-uploads" class="nav-btn">Uploads</a>
-            <a href="#" id="view-pricing" class="nav-btn-pricing">Pricing</a>
         </div>
     </nav>
 
     <!-- Pricing Modal -->
-    <div class="modal-overlay" id="pricing-modal">
-        <div class="pricing-content">
-            <button class="close-modal" id="close-pricing">&times;</button>
-            <div class="pricing-header">
-                <h2>Choose Your Plan</h2>
-                <p>Simple pricing for everyone.</p>
-            </div>
-            <div class="pricing-grid">
-                <!-- Free Plan -->
-                <div class="pricing-card">
-                    <h3>Free</h3>
-                    <div class="price">$0<span>/mo</span></div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Standard Quality</li>
-                        <li><i class="fas fa-check"></i> Ad-supported downloads</li>
-                        <li><i class="fas fa-check"></i> Watermarked "Free" option</li>
-                    </ul>
-                    <button class="pricing-btn secondary" id="continue-free">Current Plan</button>
-                </div>
-                <!-- Pro Plan -->
-                <div class="pricing-card featured">
-                    <div class="badge-featured">BEST VALUE</div>
-                    <h3>Pro</h3>
-                    <div class="price">$2<span>/mo</span></div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> High Definition (HD)</li>
-                        <li><i class="fas fa-check"></i> <strong>No Ads</strong></li>
-                        <li><i class="fas fa-check"></i> <strong>No Watermarks</strong></li>
-                        <li><i class="fas fa-check"></i> Priority Processing</li>
-                    </ul>
-                    <div id="paypal-button-container"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Pricing Modal Removed -->
 
     <main>
         <div class="hero">
@@ -137,9 +102,10 @@
                 <div class="result-content" id="result-content" style="display: none;">
                     <img id="result-image" src="" alt="Processed Image">
                     <div class="result-actions">
-                        <button class="download-btn" id="download-hd-btn">Download HD <i class="fas fa-play-circle"
-                                style="font-size: 0.8em; margin-left: 5px;"></i></button>
-                        <button class="download-watermark-btn" id="download-watermark-btn">Free w/ Watermark</button>
+                        <button class="download-btn" id="download-hd-btn">Watch Ad to Download HD (Free) <i
+                                class="fas fa-play-circle" style="font-size: 0.8em; margin-left: 5px;"></i></button>
+                        <button class="download-watermark-btn" id="download-watermark-btn">Download Standard
+                            (Free)</button>
                         <button class="reset-btn" id="reset-btn">Upload Another</button>
                     </div>
                 </div>
@@ -199,7 +165,6 @@
                 <div class="footer-column">
                     <h4>Product</h4>
                     <a href="#">Uploads</a>
-                    <a href="#view-pricing">Pricing</a>
                     <a href="logos.html">Logo Remover</a>
                 </div>
                 <div class="footer-column">

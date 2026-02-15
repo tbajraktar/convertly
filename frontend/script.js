@@ -11,83 +11,18 @@ const adModal = document.getElementById('ad-modal');
 const adTimer = document.getElementById('ad-timer');
 const closeAdBtn = document.getElementById('close-ad');
 
-const viewPricing = document.getElementById('view-pricing');
-const pricingModal = document.getElementById('pricing-modal');
-const closePricingBtn = document.getElementById('close-pricing');
-const continueFreeBtn = document.getElementById('continue-free');
+// Navigation & Modal Handlers (Pricing Removed)
 
 // State management
-let isPro = localStorage.getItem('convertly_pro') === 'true';
-
-// Update UI based on Pro Status
-function updateProUI() {
-    if (isPro) {
-        document.querySelector('.logo').innerHTML += ' <span class="badge-free" style="margin-left:5px; font-size:0.6em; padding: 2px 8px;">PRO</span>';
-        if (subscribeProBtn) {
-            subscribeProBtn.innerText = 'Subscribed';
-            subscribeProBtn.classList.remove('primary');
-            subscribeProBtn.classList.add('secondary');
-            subscribeProBtn.disabled = true;
-        }
-    }
-}
-updateProUI();
-
-// Navigation & Modal Handlers
-viewPricing.addEventListener('click', (e) => {
-    e.preventDefault();
-    pricingModal.style.display = 'flex';
-});
-
-closePricingBtn.addEventListener('click', () => {
-    pricingModal.style.display = 'none';
-});
-
-continueFreeBtn.addEventListener('click', () => {
-    pricingModal.style.display = 'none';
-});
+// Pro Status & Pricing Logic Removed
 
 // PayPal Button Integration
-if (window.paypal) {
-    paypal.Buttons({
-        style: {
-            layout: 'vertical',
-            color: 'blue',
-            shape: 'rect',
-            label: 'paypal'
-        },
-        createOrder: function (data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '2.00',
-                        currency_code: 'USD'
-                    },
-                    description: 'Convertly Pro - 1 Month Subscription'
-                }]
-            });
-        },
-        onApprove: function (data, actions) {
-            return actions.order.capture().then(function (orderData) {
-                // Successful payment
-                isPro = true;
-                localStorage.setItem('convertly_pro', 'true');
-                alert('Payment Successful! You are now a Pro member.');
-                pricingModal.style.display = 'none';
-                updateProUI();
-            });
-        },
-        onError: function (err) {
-            console.error('PayPal Error:', err);
-            alert('An error occurred with the PayPal payment. Please try again.');
-        }
-    }).render('#paypal-button-container');
-}
+// PayPal Integration Removed
 
+// Close modals when clicking outside
 // Close modals when clicking outside
 window.addEventListener('click', (e) => {
     if (e.target === adModal) adModal.style.display = 'none';
-    if (e.target === pricingModal) pricingModal.style.display = 'none';
 });
 
 let currentProcessedBlob = null;
@@ -155,20 +90,12 @@ function handleFile(file) {
 
             // Setup download buttons
             downloadHdBtn.onclick = () => {
-                if (isPro) {
-                    triggerDownload(currentProcessedBlob, `convertly-pro-${Date.now()}.png`);
-                } else {
-                    showAdAndDownload();
-                }
+                showAdAndDownload();
             };
 
             downloadWatermarkBtn.onclick = () => {
-                if (isPro) {
-                    // Pro users get clean download even if they click watermark button
-                    triggerDownload(currentProcessedBlob, `convertly-pro-${Date.now()}.png`);
-                } else {
-                    downloadWithWatermark();
-                }
+                // Standard download (No watermark now)
+                triggerDownload(currentProcessedBlob, `convertly-standard-${Date.now()}.png`);
             };
         })
         .catch(error => {
@@ -199,39 +126,7 @@ function showAdAndDownload() {
     };
 }
 
-function downloadWithWatermark() {
-    if (!currentProcessedBlob) return;
-
-    const img = new Image();
-    img.src = URL.createObjectURL(currentProcessedBlob);
-
-    img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-
-        // Draw the main image
-        ctx.drawImage(img, 0, 0);
-
-        // Add watermark
-        ctx.font = `${Math.max(20, img.width / 20)}px Inter`;
-        ctx.fillStyle = 'rgba(255, 105, 180, 0.5)'; // Pink semi-transparent
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'bottom';
-
-        const padding = img.width / 30;
-        ctx.fillText('CONVERTLY', img.width - padding, img.height - padding);
-
-        // Download from canvas
-        canvas.toBlob((blob) => {
-            triggerDownload(blob, `convertly-free-${Date.now()}.png`);
-        }, 'image/png');
-
-        URL.revokeObjectURL(img.src);
-    };
-}
+// downloadWithWatermark function Removed
 
 function triggerDownload(blob, filename) {
     const url = URL.createObjectURL(blob);

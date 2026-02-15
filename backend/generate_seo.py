@@ -289,13 +289,6 @@ LANGUAGES = {
             {"title": "Высокое Качество", "desc": "Сохраняйте оригинальное качество фотографий."},
             {"title": "Быстро и Бесплатно", "desc": "Мгновенная обработка без регистрации."}
         ],
-        "pricing": {
-            "title": "Выберите план",
-            "free": "Бесплатно",
-            "pro": "Про",
-            "best_value": "ЛУЧШИЙ ВЫБОР",
-             "per_mo": "/мес"
-        },
         "footer": {
              "terms": "Условия",
              "contact": "Контакты",
@@ -312,20 +305,13 @@ LANGUAGES = {
         "upload_btn": "Bild hochladen",
         "drop_text": "oder Bild hier ablegen",
         "processing": "Hintergrund wird entfernt...",
-        "download_hd": "HD Herunterladen",
-        "download_free": "Kostenlos mit Wasserzeichen",
+        "download_hd": "Werbung ansehen für HD (Kostenlos)",
+        "download_free": "Standard Herunterladen (Kostenlos)",
         "features": [
             {"title": "Auto Erkennung", "desc": "Unsere KI erkennt Motive in Millisekunden."},
             {"title": "Hohe Qualität", "desc": "Erhalten Sie die Originalqualität Ihrer Fotos."},
             {"title": "Schnell & Gratis", "desc": "Sofortige Bearbeitung ohne Anmeldung."}
         ],
-        "pricing": {
-            "title": "Wählen Sie Ihren Plan",
-            "free": "Kostenlos",
-            "pro": "Pro",
-            "best_value": "BESTER WERT",
-             "per_mo": "/Monat"
-        },
         "footer": {
              "terms": "AGB",
              "contact": "Kontakt",
@@ -398,42 +384,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
         <div class="nav-links">
             <a href="#" id="view-uploads" class="nav-btn">Uploads</a>
-            <a href="#" id="view-pricing" class="nav-btn-pricing">{pricing_title_short}</a>
         </div>
     </nav>
-    <div class="modal-overlay" id="pricing-modal">
-        <div class="pricing-content">
-            <button class="close-modal" id="close-pricing">&times;</button>
-            <div class="pricing-header">
-                <h2>{pricing_title}</h2>
-                <p>Simple pricing for everyone.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>{pricing_free}</h3>
-                    <div class="price">0€<span>{pricing_per_mo}</span></div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Standard</li>
-                        <li><i class="fas fa-check"></i> Ads</li>
-                        <li><i class="fas fa-check"></i> Watermarked</li>
-                    </ul>
-                    <button class="pricing-btn secondary" id="continue-free">Current</button>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="badge-featured">{pricing_best_value}</div>
-                    <h3>{pricing_pro}</h3>
-                    <div class="price">2€<span>{pricing_per_mo}</span></div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> HD</li>
-                        <li><i class="fas fa-check"></i> <strong>No Ads</strong></li>
-                        <li><i class="fas fa-check"></i> <strong>No Watermarks</strong></li>
-                        <li><i class="fas fa-check"></i> Priority</li>
-                    </ul>
-                    <div id="paypal-button-container"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <main>
         <div class="hero">
             <h1>{h1}</h1>
@@ -501,7 +453,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <div class="footer-column">
                     <h4>{footer_col1_title}</h4>
                     <a href="{home_link}#">{footer_uploads}</a>
-                    <a href="{home_link}#view-pricing">{footer_pricing}</a>
                     <a href="{logo_remover_link}">{footer_logo_remover}</a>
                 </div>
                 <div class="footer-column">
@@ -578,20 +529,14 @@ def generate_use_cases():
             hreflang_tags="", 
             css_path="",
             home_link="index.html",
-            pricing_title_short="Pricing",
-            pricing_title="Choose Your Plan",
-            pricing_free="Free",
-            pricing_pro="Pro",
-            pricing_best_value="BEST VALUE",
-            pricing_per_mo="/mo",
             h1=data["h1"],
             subtitle=data["subtitle"],
             main_icon=data.get("icon", "far fa-image"),
             upload_btn="Upload Image",
             drop_text="or drop your image here",
             processing_text="Removing background...",
-            download_hd="Download HD",
-            download_free="Free w/ Watermark",
+            download_hd="Watch Ad to Download HD (Free)",
+            download_free="Download Standard (Free)",
             feat1_title=feat1_t,
             feat1_desc=feat1_d,
             feat2_title=feat2_t,
@@ -655,12 +600,6 @@ def generate_languages():
             hreflang_tags=hreflangs,
             css_path="../",
             home_link="../index.html",
-            pricing_title_short="Pricing", 
-            pricing_title=data["pricing"]["title"],
-            pricing_free=data["pricing"]["free"],
-            pricing_pro=data["pricing"]["pro"],
-            pricing_best_value=data["pricing"]["best_value"],
-            pricing_per_mo=data["pricing"]["per_mo"],
             h1=data["h1"],
             subtitle=data["subtitle"],
             main_icon="far fa-image",
@@ -680,7 +619,6 @@ def generate_languages():
             footer_expander_text="Explore Convertly", # Simplified for now
             footer_col1_title="Product",
             footer_uploads="Uploads",
-            footer_pricing="Pricing",
             footer_logo_remover="Logo Remover",
             logo_remover_link="../logos.html",
             footer_col2_title="Use Cases",
