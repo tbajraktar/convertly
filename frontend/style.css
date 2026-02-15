@@ -487,6 +487,14 @@ footer {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     /* Subtle shadow */
+    position: relative;
+    /* Ensure stacking context */
+    z-index: 30;
+    /* Above footer and potential overlaps */
+    touch-action: manipulation;
+    /* Optimize for touch */
+    -webkit-tap-highlight-color: transparent;
+    /* Remove mobile highlight rect */
 }
 
 .footer-toggle-btn:hover {
