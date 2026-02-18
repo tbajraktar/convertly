@@ -129,7 +129,7 @@ class ImageEditor {
         // Download
         document.getElementById('download-btn').onclick = () => this.download();
         document.getElementById('download-hd-btn').onclick = () => this.startAdFlow();
-        document.getElementById('download-std-btn').onclick = () => this.download();
+        document.getElementById('download-std-btn').onclick = () => this.downloadWithSmartLink();
 
         // Environment Detection
         this.checkEnvironment();
@@ -371,6 +371,24 @@ class ImageEditor {
         link.download = `convertly-edit-${Date.now()}.png`;
         link.href = this.canvas.toDataURL('image/png');
         link.click();
+    }
+
+    downloadWithSmartLink() {
+        console.log("Triggering Smart Link Download...");
+
+        // Open Smart Link (using anchor click to avoid popup blockers)
+        const smartLink = document.createElement('a');
+        smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
+        smartLink.target = '_blank'; // New Tab
+        smartLink.rel = 'noopener noreferrer';
+        document.body.appendChild(smartLink);
+        smartLink.click();
+
+        // Small delay to ensure the first click registers before the second
+        setTimeout(() => {
+            document.body.removeChild(smartLink);
+            this.download();
+        }, 100);
     }
 }
 
