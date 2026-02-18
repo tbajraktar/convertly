@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Utility Dashboard | Convertly</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -49,6 +49,10 @@
                 Dashboard</a>
             <a href="tools/mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3
                 Extractor</a>
+            <a href="#" class="nav-item" style="opacity: 0.5; cursor: not-allowed;">
+                <i class="fab fa-youtube"></i> Thumbnail Gen <span
+                    style="font-size: 0.7em; background: #333; padding: 2px 4px; border-radius: 3px; margin-left: 5px;">Soon</span>
+            </a>
             <a href="tools/youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i>
                 YouTube Summary</a>
             <a href="tools/audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i>
@@ -65,6 +69,8 @@
                 Cloner</a>
             <a href="tools/code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code
                 Commenter</a>
+            <a href="tools/terminal-helper/index.html" class="tool-nav-btn"><i class="fas fa-terminal"></i> Terminal
+                Helper</a>
         </aside>
 
         <!-- Content -->
@@ -78,72 +84,202 @@
 
                 <div class="tool-grid">
                     <!-- MP3 Extractor -->
-                    <a href="tools/mp3-extractor/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
-                        <div class="card-icon"><i class="fas fa-music"></i></div>
-                        <h3>MP3 Extractor</h3>
-                        <p>Strip high-quality audio from your MP4 videos instantly.</p>
-                    </a>
+                    <div class="tool-card">
+                        <a href="tools/mp3-extractor/index.html"
+                            style="text-decoration: none; color: inherit; display: block;">
+                            <div class="card-icon"><i class="fas fa-music"></i></div>
+                            <h3>MP3 Extractor</h3>
+                            <p>Strip high-quality audio from your MP4 videos instantly.</p>
+                        </a>
+                        <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="tool-details">
+                            <h4>High-Fidelity Audio Extraction</h4>
+                            <p>Convert any MP4 or MOV video into a crisp 320kbps MP3. Perfect for creators who need to
+                                pull voiceovers or sound effects from video clips instantly. 100% browser-based for
+                                maximum speed.</p>
+                            <a href="tools/mp3-extractor/index.html" class="tool-action-btn">Open Tool</a>
+                        </div>
+                    </div>
 
-                    <!-- YouTube Summary -->
-                    <a href="tools/youtube-summary/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                    <!-- YouTube Thumbnail Maker -->
+                    <div class="tool-card coming-soon" style="opacity: 0.7; cursor: not-allowed;">
+                        <div class="card-icon" style="background: linear-gradient(135deg, #FF0000 0%, #FF8A00 100%);">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>YouTube Thumbnail</h3>
+                            <p>Generate viral thumbnails with AI. (Premium)</p>
+                            <span class="badge"
+                                style="background: #333; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">Coming
+                                Soon</span>
+                        </div>
+                    </div> <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Viral Thumbnails in Seconds</h4>
+                        <p>Instant background removal optimized for YouTube. Isolate yourself or your product to
+                            create high-CTR thumbnails that pop. No green screen required.</p>
+                        <a href="tools/youtube-thumbnail/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- YouTube Summary -->
+                <div class="tool-card">
+                    <a href="tools/youtube-summary/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fab fa-youtube"></i></div>
                         <h3>YouTube Summary</h3>
                         <p>Transcribe and summarize YouTube videos with AI.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>AI-Powered Video TL;DR</h4>
+                        <p>Don't waste 20 minutes on a 5-minute point. Paste any YouTube URL to get an instant,
+                            structured summary of the video’s key takeaways, perfect for research, learning, and
+                            productivity.</p>
+                        <a href="tools/youtube-summary/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Audio Translator -->
-                    <a href="tools/audio-translator/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Audio Translator -->
+                <div class="tool-card">
+                    <a href="tools/audio-translator/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-language"></i></div>
                         <h3>Audio Translator</h3>
                         <p>Convert audio to text and translate it into any language.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Global Communication, Local Sound</h4>
+                        <p>Upload your voice notes or meeting recordings. Our AI Audio Translator breaks language
+                            barriers by transcribing and translating your speech into 50+ languages with
+                            native-level accuracy.</p>
+                        <a href="tools/audio-translator/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Auto Resizer -->
-                    <a href="tools/image-resizer/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Auto Resizer -->
+                <div class="tool-card">
+                    <a href="tools/image-resizer/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-crop-alt"></i></div>
                         <h3>Auto Resizer</h3>
                         <p>Generate social media crops (1:1, 16:9, etc.) from one image.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Smart Social Media Cropping</h4>
+                        <p>Stop guessing dimensions. Our AI identifies the "focal point" of your photo and
+                            automatically crops it for Instagram (1:1), TikTok (9:16), or LinkedIn (1.91:1) without
+                            losing the subject.</p>
+                        <a href="tools/image-resizer/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Privacy Redactor -->
-                    <a href="tools/privacy-redactor/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Privacy Redactor -->
+                <div class="tool-card">
+                    <a href="tools/privacy-redactor/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-user-secret"></i></div>
                         <h3>Privacy Redactor</h3>
                         <p>Automatically blur emails, names, and phones from docs.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Auto-Blur Sensitive Information</h4>
+                        <p>Secure your screenshots before sharing. Our AI automatically scans for emails, phone
+                            numbers, and home addresses, redacting them instantly to keep your identity safe online.
+                        </p>
+                        <a href="tools/privacy-redactor/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Site Cloner -->
-                    <a href="tools/site-cloner/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Site Cloner -->
+                <div class="tool-card">
+                    <a href="tools/site-cloner/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-clone"></i></div>
                         <h3>Site Cloner</h3>
                         <p>Clone a URL's structure into a clean React component.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>URL to Code in One Click</h4>
+                        <p>The ultimate developer shortcut. Analyze any website's structure and generate clean,
+                            modular React components. Rapidly prototype your next UI by cloning proven layouts.</p>
+                        <a href="tools/site-cloner/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Code Commenter -->
-                    <a href="tools/code-commenter/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Code Commenter -->
+                <div class="tool-card">
+                    <a href="tools/code-commenter/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-code"></i></div>
                         <h3>Code Commenter</h3>
                         <p>Generate professional JSDoc comments for your snippets.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Professional JSDoc Documentation</h4>
+                        <p>Clean code is readable code. Paste your "messy" snippets and let our AI generate
+                            professional, industry-standard comments and documentation for JS, Python, and more.</p>
+                        <a href="tools/code-commenter/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
+                </div>
 
-                    <!-- Terminal Helper -->
-                    <a href="tools/terminal-helper/index.html" class="tool-card"
-                        style="text-decoration: none; color: inherit;">
+                <!-- Terminal Helper -->
+                <div class="tool-card">
+                    <a href="tools/terminal-helper/index.html"
+                        style="text-decoration: none; color: inherit; display: block;">
                         <div class="card-icon"><i class="fas fa-terminal"></i></div>
                         <h3>Terminal Helper</h3>
                         <p>Translate natural language into safe shell commands.</p>
                     </a>
+                    <button class="learn-more-btn" onclick="toggleDetails(this)">Learn More <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="tool-details">
+                        <h4>Natural Language to CLI</h4>
+                        <p>Forget memorizing complex flags. Tell the Terminal Helper what you want to do (e.g.,
+                            "Find all logs from yesterday and move them to a zip") and get the exact, safe command
+                            for your OS.</p>
+                        <a href="tools/terminal-helper/index.html" class="tool-action-btn">Open Tool</a>
+                    </div>
                 </div>
             </div>
-        </main>
     </div>
+    </main>
+    </div>
+
+    <script>
+        function toggleDetails(btn) {
+            // Find the closest tool-card parent first to ensure safer traversal
+            const card = btn.closest('.tool-card');
+            if (!card) return;
+
+            // Find the details container within the card
+            const details = card.querySelector('.tool-details');
+            if (!details) return;
+
+            // Toggle active state
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                btn.innerHTML = 'Learn More <i class="fas fa-chevron-down"></i>';
+                // Reset button style if needed (e.g. valid 'Learn More' state)
+            } else {
+                details.classList.add('active');
+                btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+            }
+        }
+    </script>
 </body>
 
 </html>

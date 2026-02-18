@@ -14,6 +14,11 @@ os.environ["ORT_LOGGING_LEVEL"] = "3"
 
 app = FastAPI()
 
+# Include Routers
+from backend.routers import terminal, thumbnail
+app.include_router(terminal.router)
+app.include_router(thumbnail.router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

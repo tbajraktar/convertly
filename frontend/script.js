@@ -165,19 +165,27 @@ class ImageEditor {
 
     checkEnvironment() {
         const urlParams = new URLSearchParams(window.location.search);
-        const isDesktopApp = urlParams.get('app') === 'desktop';
+        let isDesktopApp = (window.pywebview !== undefined) || (urlParams.get('app') === 'desktop');
+
+        if (isDesktopApp) {
+            sessionStorage.setItem('isDesktop', 'true');
+        } else if (sessionStorage.getItem('isDesktop') === 'true') {
+            isDesktopApp = true;
+        }
 
         if (!isDesktopApp) {
             // Website Mode (Any environment NOT explicitly marked as desktop app)
-            document.getElementById('download-btn').style.display = 'none';
-            document.getElementById('download-hd-btn').style.display = 'inline-flex';
-            document.getElementById('download-std-btn').style.display = 'inline-flex';
+            if (document.getElementById('download-btn')) document.getElementById('download-btn').style.display = 'none';
+            if (document.getElementById('download-hd-btn')) document.getElementById('download-hd-btn').style.display = 'inline-flex';
+            if (document.getElementById('download-std-btn')) document.getElementById('download-std-btn').style.display = 'inline-flex';
         } else {
             // Desktop App Mode
-            document.getElementById('download-btn').style.display = 'inline-flex';
-            document.getElementById('download-hd-btn').style.display = 'none';
-            document.getElementById('download-std-btn').style.display = 'none';
+            if (document.getElementById('download-btn')) document.getElementById('download-btn').style.display = 'inline-flex';
+            if (document.getElementById('download-hd-btn')) document.getElementById('download-hd-btn').style.display = 'none';
+            if (document.getElementById('download-std-btn')) document.getElementById('download-std-btn').style.display = 'none';
         }
+
+        return isDesktopApp;
     }
 
     initCanvasEvents() {
@@ -374,21 +382,9 @@ class ImageEditor {
     }
 
     downloadWithSmartLink() {
-        console.log("Triggering Smart Link Download...");
-
-        // Open Smart Link (using anchor click to avoid popup blockers)
-        const smartLink = document.createElement('a');
-        smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
-        smartLink.target = '_blank'; // New Tab
-        smartLink.rel = 'noopener noreferrer';
-        document.body.appendChild(smartLink);
-        smartLink.click();
-
-        // Small delay to ensure the first click registers before the second
-        setTimeout(() => {
-            document.body.removeChild(smartLink);
-            this.download();
-        }, 100);
+        // Smart Link Removed by User Request
+        console.log("Smart Link Disabled. Downloading directly...");
+        this.download();
     }
 }
 

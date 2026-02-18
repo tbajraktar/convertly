@@ -1,227 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Cloner - Convertly</title>
-    <meta name="description"
-        content="Clone a website's structure, HTML, and CSS into a clean and downloadable ZIP package.">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <a href="../../index.html"
-                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
-                <span>CONVERTLY</span>
-            </a>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Website Cloner - Convertly
+  </title>
+  <meta content="Clone a website's structure, HTML, and CSS into a clean and downloadable ZIP package." name="description"/>
+  <meta content="background remover, remove background, ai background removal, transparent background, free background remover, convertly" name="keywords"/>
+  <meta content="Convertly" name="author"/>
+  <meta content="index, follow" name="robots"/>
+  <!-- Open Graph -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://convertly.up.railway.app/" property="og:url"/>
+  <meta content="Free Background Remover - Convertly" property="og:title"/>
+  <meta content="Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results." property="og:description"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" property="twitter:card"/>
+  <meta content="https://convertly.up.railway.app/" property="twitter:url"/>
+  <meta content="Free Background Remover - Convertly" property="twitter:title"/>
+  <meta content="Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results." property="twitter:description"/>
+  <link href="https://convertly.up.railway.app/" rel="canonical"/>
+  <link href="https://convertly.up.railway.app/" hreflang="en" rel="alternate">
+   <link href="https://convertly.up.railway.app/fr/" hreflang="fr" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/it/" hreflang="it" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/es/" hreflang="es" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/pt/" hreflang="pt" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/nl/" hreflang="nl" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/ru/" hreflang="ru" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/de/" hreflang="de" rel="alternate"/>
+   <link href="../../style.css?v=3.0" rel="stylesheet"/>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Convertly",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+   </script>
+   <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446489406681308">
+   </script>
+  </link>
+ </head>
+ <body>
+  <div class="bg-blobs">
+   <div class="blob blob-1">
+   </div>
+   <div class="blob blob-2">
+   </div>
+   <div class="blob blob-3">
+   </div>
+  </div>
+  <nav>
+   <div class="logo">
+    <a href="../../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+     <div class="logo-icon">
+      <i class="fas fa-layer-group">
+      </i>
+     </div>
+     <span>
+      CONVERTLY
+     </span>
+    </a>
+   </div>
+   <div class="nav-links">
+    <a class="nav-btn" href="#" id="view-uploads">
+     Uploads
+    </a>
+    <a class="nav-btn" href="../../dashboard.html">
+     AI Tools
+     <i class="fas fa-magic">
+     </i>
+    </a>
+   </div>
+  </nav>
+  <main>
+   <div class="hero">
+    <h1>
+     HTML
+     <span class="gradient-text">
+      Site Cloner
+     </span>
+    </h1>
+    <p class="subtitle">
+     Clone a website's structure, HTML, and CSS.
+    </p>
+    <!-- SEO Content Block (Background Remover Only) -->
+    <div class="ad-modal" id="ad-modal" style="display: none;">
+     <div class="ad-content">
+      <div class="ad-header">
+       <h3>
+        Watch Ad
+       </h3>
+       <button class="close-ad" id="close-ad">
+        ×
+       </button>
+      </div>
+      <div class="ad-body">
+       <div class="ad-placeholder">
+        <div class="ad-timer" id="ad-timer">
+         5
         </div>
-        <div class="nav-links">
-            <a href="../../index.html" class="nav-btn">Uploads</a>
-            <a href="../../dashboard.html" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools
-                <i class="fas fa-magic"></i></a>
-        </div>
-    </nav>
-
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>Media Tools</h3>
-            </div>
-            <a href="../../dashboard.html" class="tool-nav-btn"><i class="fas fa-th-large"></i> Dashboard</a>
-            <a href="../mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3 Extractor</a>
-            <a href="../youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i> YouTube
-                Summary</a>
-            <a href="../audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i> Audio
-                Translator</a>
-            <a href="../image-resizer/index.html" class="tool-nav-btn"><i class="fas fa-crop-alt"></i> Auto Resizer</a>
-
-            <div class="sidebar-header" style="margin-top: 1rem;">
-                <h3>Utility Tools</h3>
-            </div>
-            <a href="../privacy-redactor/index.html" class="tool-nav-btn"><i class="fas fa-user-secret"></i> Privacy
-                Redactor</a>
-            <a href="../site-cloner/index.html" class="tool-nav-btn active"><i class="fas fa-clone"></i> Site Cloner</a>
-            <a href="../code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code Commenter</a>
-            <a href="../terminal-helper/index.html" class="tool-nav-btn"><i class="fas fa-terminal"></i> Terminal
-                Helper</a>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="dashboard-content">
-            <div class="tool-header">
-                <h1>Site Cloner</h1>
-                <p>Clone a URL's structure into a clean package.</p>
-            </div>
-
-            <div class="active-tool-container">
-                <div class="tool-content" style="max-width: 800px; margin: 0 auto;">
-                    <!-- Input -->
-                    <div class="input-group">
-                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-gray);">Website
-                            URL</label>
-                        <div style="display: flex; gap: 1rem;">
-                            <input type="text" id="clone-url" placeholder="https://example.com"
-                                style="flex: 1; padding: 0.8rem; border-radius: 0.5rem; border: 1px solid var(--border); background: var(--glass-bg); color: var(--text);">
-                            <button class="primary-btn" onclick="handleSiteClone()">
-                                <i class="fas fa-download"></i> Clone & Download
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Processing State -->
-                    <div id="clone-processing" style="display: none; margin-top: 2rem;">
-                        <div
-                            style="background: var(--glass-bg); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; text-align: center;">
-                            <div class="spinner" style="margin: 0 auto 1rem auto;"></div>
-                            <h3 id="clone-status-text">Capturing Styles...</h3>
-                            <div class="progress-bar"
-                                style="width: 100%; height: 6px; background: var(--border); border-radius: 3px; margin-top: 1rem; overflow: hidden;">
-                                <div id="clone-progress-fill"
-                                    style="width: 0%; height: 100%; background: var(--primary); transition: width 0.5s ease;">
-                                </div>
-                            </div>
-                            <p style="color: var(--text-gray); margin-top: 0.5rem; font-size: 0.9rem;">This may take up
-                                to 30 seconds.</p>
-                        </div>
-                    </div>
-
-                    <!-- Result State -->
-                    <div id="clone-result" style="display: none; margin-top: 2rem; text-align: center;">
-                        <div
-                            style="background: #dcfce7; color: #16a34a; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h3>Cloning Complete!</h3>
-                        <div
-                            style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
-                            <img id="clone-favicon" src="" style="width: 32px; height: 32px; display: none;">
-                            <a id="clone-download-link" class="primary-btn" href="#" download>
-                                <i class="fas fa-file-archive"></i> Download .ZIP
-                            </a>
-                        </div>
-                        <button class="secondary-btn" onclick="location.reload()" style="margin-top: 1rem;">Clone
-                            Another</button>
-                    </div>
-                </div>
-            </div>
-        </main>
+       </div>
+      </div>
+     </div>
     </div>
+    <div class="features">
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-code">
+       </i>
+      </div>
+      <h3>
+       Clean Code
+      </h3>
+      <p>
+       Get readable HTML and CSS.
+      </p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-download">
+       </i>
+      </div>
+      <h3>
+       ZIP Download
+      </h3>
+      <p>
+       Full package ready for development.
+      </p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-laptop-code">
+       </i>
+      </div>
+      <h3>
+       Dev Friendly
+      </h3>
+      <p>
+       Perfect for studying site structures.
+      </p>
+     </div>
+    </div>
+    <div class="tool-content">
+     <!-- Using .upload-container for the glassmorphism card effect -->
+     <div class="upload-container">
+      <div class="upload-content" style="width: 100%; max-width: 800px; display: block;">
+       <!-- Input -->
+       <div class="input-group">
+        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-gray);">
+         Website URL
+        </label>
+        <div style="display: flex; gap: 1rem;">
+         <input id="clone-url" placeholder="https://example.com" style="flex: 1; padding: 0.8rem; border-radius: 0.5rem; border: 1px solid var(--border); background: var(--glass-bg); color: var(--text);" type="text"/>
+         <button class="primary-btn" onclick="handleSiteClone()">
+          <i class="fas fa-download">
+          </i>
+          Clone &amp; Download
+         </button>
+        </div>
+       </div>
+       <!-- Processing State -->
+       <div id="clone-processing" style="display: none; margin-top: 2rem;">
+        <div style="background: var(--glass-bg); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; text-align: center;">
+         <div class="spinner" style="margin: 0 auto 1rem auto;">
+         </div>
+         <h3 id="clone-status-text">
+          Capturing Styles...
+         </h3>
+         <div class="progress-bar" style="width: 100%; height: 6px; background: var(--border); border-radius: 3px; margin-top: 1rem; overflow: hidden;">
+          <div id="clone-progress-fill" style="width: 0%; height: 100%; background: var(--primary); transition: width 0.5s ease;">
+          </div>
+         </div>
+         <p style="color: var(--text-gray); margin-top: 0.5rem; font-size: 0.9rem;">
+          This may take up to 30
+                  seconds.
+         </p>
+        </div>
+       </div>
+       <!-- Result State -->
+       <div id="clone-result" style="display: none; margin-top: 2rem; text-align: center;">
+        <div style="background: #dcfce7; color: #16a34a; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto;">
+         <i class="fas fa-check">
+         </i>
+        </div>
+        <h3>
+         Cloning Complete!
+        </h3>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+         <img id="clone-favicon" src="" style="width: 32px; height: 32px; display: none;"/>
+         <a class="primary-btn" download="" href="#" id="clone-download-link">
+          <i class="fas fa-file-archive">
+          </i>
+          Download .ZIP
+         </a>
+        </div>
+        <button class="secondary-btn" onclick="location.reload()" style="margin-top: 1rem;">
+         Clone Another
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <footer>
+   <button class="footer-toggle-btn" id="footer-toggle-btn" onclick="toggleFooter()">
+    <span>
+     Explore Convertly
+    </span>
+    <i class="fas fa-chevron-down" id="footer-toggle-icon">
+    </i>
+   </button>
+   <div class="footer-directory" id="footer-directory" style="display: none;">
+    <div class="footer-grid">
+     <div class="footer-column">
+      <h4>
+       Product
+      </h4>
+      <a href="../../index.html#">
+       Uploads
+      </a>
+      <a href="../../logos.html">
+       Logo Remover
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Use Cases
+      </h4>
+      <a href="../../cars.html">
+       Car Background Remover
+      </a>
+      <a href="../../jewelry.html">
+       Jewelry Background Remover
+      </a>
+      <a href="../../shoes.html">
+       Shoe Background Remover
+      </a>
+      <a href="../../furniture.html">
+       Furniture Background Remover
+      </a>
+      <a href="../../animals.html">
+       Pet Background Remover
+      </a>
+      <a href="../../people.html">
+       Portrait Background Remover
+      </a>
+      <a href="../../real-estate.html">
+       Real Estate Background Remover
+      </a>
+      <a href="../../graphics.html">
+       Graphic Background Remover
+      </a>
+      <a href="../../signatures.html">
+       Signature Background Remover
+      </a>
+      <a href="../../amazon.html">
+       Amazon Product Photo Editor
+      </a>
+      <a href="../../shopify.html">
+       Shopify Background Remover
+      </a>
+      <a href="../../ebay.html">
+       eBay Background Remover
+      </a>
+      <a href="../../id-photo.html">
+       Passport &amp; ID Photo Maker
+      </a>
+      <a href="../../profile-picture.html">
+       Profile Picture Maker
+      </a>
+      <a href="../../logos.html">
+       Transparent Logo Maker
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Languages
+      </h4>
+      <a href="../../fr/index.html">
+       Français
+      </a>
+      <a href="../../it/index.html">
+       Italiano
+      </a>
+      <a href="../../es/index.html">
+       Español
+      </a>
+      <a href="../../pt/index.html">
+       Português
+      </a>
+      <a href="../../nl/index.html">
+       Nederlands
+      </a>
+      <a href="../../ru/index.html">
+       Русский
+      </a>
+      <a href="../../de/index.html">
+       Deutsch
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Company
+      </h4>
+      <a href="#">
+       Terms
+      </a>
+      <a href="#">
+       Contact
+      </a>
+      <a href="#">
+       Refunds
+      </a>
+      <a href="#">
+       FAQ
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="social-links">
+    <a href="#">
+     <i class="fab fa-twitter">
+     </i>
+    </a>
+    <a href="#">
+     <i class="fab fa-instagram">
+     </i>
+    </a>
+   </div>
+   <p class="copyright">
+    © 2024 CONVERTLY. Created with Love.
+   </p>
+  </footer>
+  <script>
+   function toggleFooter() {
+            const dir = document.getElementById('footer-directory');
+            const icon = document.getElementById('footer-toggle-icon');
+            if (dir.style.display === 'none') {
+                dir.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dir.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+  </script>
+  <script>
+   (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (window.pywebview !== undefined || urlParams.get('app') === 'desktop') {
+                sessionStorage.setItem('isDesktop', 'true');
+            }
+        })();
+  </script>
+  <script>
+   // Smart Link Logic
+    function _unused_old_handler(e, url, filename) {
+            
+      
 
-    <script>
-        // Smart Link Logic
-        function handleSmartDownload(e, url, filename) {
-            e.preventDefault();
-            console.log("Triggering Smart Link Download...");
+      console.log("Triggering Smart Link Download...");
+      // Open Smart Link
+      const smartLink = document.createElement('a');
+      smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
+      smartLink.target = '_blank';
+      smartLink.rel = 'noopener noreferrer';
+      document.body.appendChild(smartLink);
+      smartLink.click();
 
-            // Open Smart Link
-            const smartLink = document.createElement('a');
-            smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
-            smartLink.target = '_blank';
-            smartLink.rel = 'noopener noreferrer';
-            document.body.appendChild(smartLink);
-            smartLink.click();
+      // Trigger Real Download
+      setTimeout(() => {
+        document.body.removeChild(smartLink);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 500);
+    }
 
-            // Trigger Real Download
-            setTimeout(() => {
-                document.body.removeChild(smartLink);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = filename;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }, 500);
+    async function handleSiteClone() {
+      const urlInput = document.getElementById('clone-url');
+      let url = urlInput.value.trim();
+
+      if (!url) {
+        alert('Please enter a URL');
+        return;
+      }
+
+      if (!url.startsWith('http')) {
+        url = 'https://' + url;
+      }
+
+      // Show Processing
+      document.getElementById('clone-result').style.display = 'none';
+      document.getElementById('clone-processing').style.display = 'block';
+
+      // Simulate Progress
+      simulateProgress();
+
+      try {
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+          ? 'http://127.0.0.1:8000/api/site-cloner'
+          : '/api/site-cloner';
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: url })
+        });
+
+        if (!response.ok) throw new Error('Clone failed: ' + response.statusText);
+
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const faviconUrl = response.headers.get('X-Favicon-Url');
+
+        // Show Result
+        document.getElementById('clone-processing').style.display = 'none';
+        document.getElementById('clone-result').style.display = 'block';
+
+        const link = document.getElementById('clone-download-link');
+        link.href = downloadUrl;
+        link.download = "site_clone.zip";
+
+        // Attach Smart Link Handler
+        link.onclick = (e) => handleSmartDownload(e, downloadUrl, link.download);
+
+        if (faviconUrl && faviconUrl !== 'null') {
+          const img = document.getElementById('clone-favicon');
+          img.src = faviconUrl;
+          img.style.display = 'block';
         }
 
-        async function handleSiteClone() {
-            const urlInput = document.getElementById('clone-url');
-            const url = urlInput.value.trim();
+      } catch (error) {
+        console.error(error);
+        alert('Cloning failed. The site might be blocking requests or invalid.');
+        document.getElementById('clone-processing').style.display = 'none';
+      }
+    }
 
-            if (!url) {
-                alert('Please enter a URL');
-                return;
-            }
+    function simulateProgress() {
+      let progress = 0;
+      const bar = document.getElementById('clone-progress-fill');
+      const status = document.getElementById('clone-status-text');
+      const messages = ["Launching Headless Browser...", "Scraping HTML & CSS...", "Cleaning & Zipping..."];
 
-            // Show Processing
-            document.getElementById('clone-result').style.display = 'none';
-            document.getElementById('clone-processing').style.display = 'block';
+      const interval = setInterval(() => {
+        progress += Math.random() * 5;
+        if (progress > 90) clearInterval(interval);
+        // Stop progress if result is visible
+        if (document.getElementById('clone-result').style.display === 'block') {
+          clearInterval(interval);
+          bar.style.width = '100%';
+          return;
+        }
 
-            // Simulate Progress
-            simulateProgress();
+        bar.style.width = Math.min(progress, 90) + '%';
 
-            try {
-                const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-                    ? 'http://127.0.0.1:8000/api/site-cloner'
-                    : '/api/site-cloner';
+        if (progress < 30) status.innerText = messages[0];
+        else if (progress < 60) status.innerText = messages[1];
+        else status.innerText = messages[2];
 
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: url })
-                });
-
-                if (!response.ok) throw new Error('Clone failed');
-
-                const blob = await response.blob();
-                const downloadUrl = window.URL.createObjectURL(blob);
-                const faviconUrl = response.headers.get('X-Favicon-Url');
-
-                // Show Result
-                document.getElementById('clone-processing').style.display = 'none';
-                document.getElementById('clone-result').style.display = 'block';
-
-                const link = document.getElementById('clone-download-link');
-                link.href = downloadUrl;
-                link.download = "site_clone.zip";
-
-                // Attach Smart Link Handler
-                link.onclick = (e) => handleSmartDownload(e, downloadUrl, link.download);
-
-                if (faviconUrl && faviconUrl !== 'null') {
-                    const img = document.getElementById('clone-favicon');
-                    img.src = faviconUrl;
-                    img.style.display = 'block';
+      }, 500);
+    }
+  
+                
+                // Fixed Direct Download Handler
+                function handleSmartDownload(e, url, filename) {
+                    e.preventDefault();
+                    console.log('Smart Link Removed -> Direct Download');
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                 }
-
-            } catch (error) {
-                console.error(error);
-                alert('Cloning failed. Please check the URL.');
-                document.getElementById('clone-processing').style.display = 'none';
-            }
-        }
-
-        function simulateProgress() {
-            let progress = 0;
-            const bar = document.getElementById('clone-progress-fill');
-            const status = document.getElementById('clone-status-text');
-            const messages = ["Launching Headless Browser...", "Scraping HTML & CSS...", "Cleaning & Zipping..."];
-
-            const interval = setInterval(() => {
-                progress += Math.random() * 5;
-                if (progress > 90) clearInterval(interval);
-                bar.style.width = Math.min(progress, 90) + '%';
-
-                if (progress < 30) status.innerText = messages[0];
-                else if (progress < 60) status.innerText = messages[1];
-                else status.innerText = messages[2];
-
-            }, 500);
-        }
-    </script>
-</body>
-
+  </script>
+ </body>
 </html>

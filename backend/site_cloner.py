@@ -28,7 +28,11 @@ def _clone_site_sync(url: str):
     soup = BeautifulSoup(content, 'html.parser')
     
     # Get Title
-    title = soup.title.string if soup.title else "cloned_site"
+    # Get Title and Sanitize
+    raw_title = soup.title.string if soup.title and soup.title.string else "cloned_site"
+    title = "".join([c for c in raw_title if c.isalnum() or c in (' ', '-', '_')]).strip()
+    if not title:
+        title = "cloned_site"
     
     # Get Favicon
     favicon_url = None

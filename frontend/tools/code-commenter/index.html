@@ -1,122 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Commenter - Convertly</title>
-    <meta name="description"
-        content="Auto-generate JSDoc and Docstring documentation and optimize your code formatting with Prettier.">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <a href="../../index.html"
-                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
-                <span>CONVERTLY</span>
-            </a>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AI Code Commenter - Convertly
+  </title>
+  <meta content="Auto-generate JSDoc and Docstring documentation and optimize your code formatting." name="description"/>
+  <meta content="background remover, remove background, ai background removal, transparent background, free background remover, convertly" name="keywords"/>
+  <meta content="Convertly" name="author"/>
+  <meta content="index, follow" name="robots"/>
+  <!-- Open Graph -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://convertly.up.railway.app/" property="og:url"/>
+  <meta content="Free Background Remover - Convertly" property="og:title"/>
+  <meta content="Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results." property="og:description"/>
+  <!-- Twitter -->
+  <meta content="summary_large_image" property="twitter:card"/>
+  <meta content="https://convertly.up.railway.app/" property="twitter:url"/>
+  <meta content="Free Background Remover - Convertly" property="twitter:title"/>
+  <meta content="Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results." property="twitter:description"/>
+  <link href="https://convertly.up.railway.app/" rel="canonical"/>
+  <link href="https://convertly.up.railway.app/" hreflang="en" rel="alternate">
+   <link href="https://convertly.up.railway.app/fr/" hreflang="fr" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/it/" hreflang="it" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/es/" hreflang="es" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/pt/" hreflang="pt" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/nl/" hreflang="nl" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/ru/" hreflang="ru" rel="alternate"/>
+   <link href="https://convertly.up.railway.app/de/" hreflang="de" rel="alternate"/>
+   <link href="../../style.css?v=3.0" rel="stylesheet"/>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Convertly",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Remove image backgrounds automatically in 5 seconds. High quality, free, and instant results.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+   </script>
+   <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446489406681308">
+   </script>
+  </link>
+ </head>
+ <body>
+  <div class="bg-blobs">
+   <div class="blob blob-1">
+   </div>
+   <div class="blob blob-2">
+   </div>
+   <div class="blob blob-3">
+   </div>
+  </div>
+  <nav>
+   <div class="logo">
+    <a href="../../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+     <div class="logo-icon">
+      <i class="fas fa-layer-group">
+      </i>
+     </div>
+     <span>
+      CONVERTLY
+     </span>
+    </a>
+   </div>
+   <div class="nav-links">
+    <a class="nav-btn" href="#" id="view-uploads">
+     Uploads
+    </a>
+    <a class="nav-btn" href="../../dashboard.html">
+     AI Tools
+     <i class="fas fa-magic">
+     </i>
+    </a>
+   </div>
+  </nav>
+  <main>
+   <div class="hero">
+    <h1>
+     AI
+     <span class="gradient-text">
+      Code Docs
+     </span>
+    </h1>
+    <p class="subtitle">
+     Auto-generate JSDoc and comments for your code.
+    </p>
+    <!-- SEO Content Block (Background Remover Only) -->
+    <div class="ad-modal" id="ad-modal" style="display: none;">
+     <div class="ad-content">
+      <div class="ad-header">
+       <h3>
+        Watch Ad
+       </h3>
+       <button class="close-ad" id="close-ad">
+        ×
+       </button>
+      </div>
+      <div class="ad-body">
+       <div class="ad-placeholder">
+        <div class="ad-timer" id="ad-timer">
+         5
         </div>
-        <div class="nav-links">
-            <a href="../../index.html" class="nav-btn">Uploads</a>
-            <a href="../../dashboard.html" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools
-                <i class="fas fa-magic"></i></a>
-        </div>
-    </nav>
-
-    <div class="dashboard-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>Media Tools</h3>
-            </div>
-            <a href="../../dashboard.html" class="tool-nav-btn"><i class="fas fa-th-large"></i> Dashboard</a>
-            <a href="../mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3 Extractor</a>
-            <a href="../youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i> YouTube
-                Summary</a>
-            <a href="../audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i> Audio
-                Translator</a>
-            <a href="../image-resizer/index.html" class="tool-nav-btn"><i class="fas fa-crop-alt"></i> Auto Resizer</a>
-
-            <div class="sidebar-header" style="margin-top: 1rem;">
-                <h3>Utility Tools</h3>
-            </div>
-            <a href="../privacy-redactor/index.html" class="tool-nav-btn"><i class="fas fa-user-secret"></i> Privacy
-                Redactor</a>
-            <a href="../site-cloner/index.html" class="tool-nav-btn"><i class="fas fa-clone"></i> Site Cloner</a>
-            <a href="../code-commenter/index.html" class="tool-nav-btn active"><i class="fas fa-code"></i> Code
-                Commenter</a>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="dashboard-content">
-            <div class="tool-header">
-                <h1>Code Commenter</h1>
-                <p>Auto-generate documentation & format code.</p>
-            </div>
-
-            <div class="active-tool-container">
-                <div class="tool-content" style="max-width: 1000px; margin: 0 auto;">
-                    <!-- Controls -->
-                    <div class="controls-bar"
-                        style="display: flex; gap: 1rem; margin-bottom: 1rem; background: var(--glass-bg); padding: 1rem; border-radius: 1rem; border: 1px solid var(--border);">
-                        <select id="commenter-lang"
-                            style="padding: 0.5rem; border-radius: 0.5rem; background: var(--bg); color: var(--text); border: 1px solid var(--border);">
-                            <option value="javascript">JavaScript</option>
-                            <option value="python">Python</option>
-                        </select>
-                        <button class="primary-btn" onclick="handleOptimize()"
-                            style="display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-magic"></i> Optimize (Prettier)
-                        </button>
-                        <button class="secondary-btn" onclick="handleAddComments()"
-                            style="display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-comment-medical"></i> Add Comments
-                        </button>
-                    </div>
-
-                    <div class="editor-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <!-- Input -->
-                        <div>
-                            <h4 style="margin-bottom: 0.5rem; color: var(--text-gray);">Input Code</h4>
-                            <textarea id="code-input" placeholder="Paste your code here..."
-                                style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--border); resize: none; font-family: 'Fira Code', monospace; line-height: 1.5; background: #1e1e1e; color: #d4d4d4; font-size: 14px;"></textarea>
-                        </div>
-
-                        <!-- Output -->
-                        <div>
-                            <h4 style="margin-bottom: 0.5rem; color: var(--primary);">Output</h4>
-                            <button class="secondary-btn" onclick="copyToClipboard('code-output')"
-                                style="float: right; margin-top: -2rem; font-size: 0.8rem; padding: 0.2rem 0.5rem;">Copy</button>
-                            <textarea id="code-output" readonly
-                                style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--primary); resize: none; font-family: 'Fira Code', monospace; line-height: 1.5; background: #1e1e1e; color: #d4d4d4; font-size: 14px;"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+       </div>
+      </div>
+     </div>
     </div>
-
-    <!-- Libraries -->
-    <!-- Prettier & Plugins (for Code Commenter) -->
-    <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
-    <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
-    <script src="https://unpkg.com/prettier@2.8.8/parser-estree.js"></script>
-    <script src="../../CodeCommenter.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    <div class="features">
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-comment-dots">
+       </i>
+      </div>
+      <h3>
+       Auto Docs
+      </h3>
+      <p>
+       Generate JSDoc and Docstrings instantly.
+      </p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-align-left">
+       </i>
+      </div>
+      <h3>
+       Prettier
+      </h3>
+      <p>
+       Built-in code formatting.
+      </p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       <i class="fas fa-project-diagram">
+       </i>
+      </div>
+      <h3>
+       Multi-Lang
+      </h3>
+      <p>
+       Supports Python and JavaScript.
+      </p>
+     </div>
+    </div>
+    <div class="tool-content" style="max-width: 1000px; margin: 0 auto;">
+     <!-- Controls -->
+     <div class="controls-bar" style="display: flex; gap: 1rem; margin-bottom: 1rem; background: var(--glass-bg); padding: 1rem; border-radius: 1rem; border: 1px solid var(--border);">
+      <select id="commenter-lang" style="padding: 0.5rem; border-radius: 0.5rem; background: var(--bg); color: var(--text); border: 1px solid var(--border);">
+       <option value="javascript">
+        JavaScript
+       </option>
+       <option value="python">
+        Python
+       </option>
+      </select>
+      <button class="primary-btn" onclick="handleOptimize()" style="display: flex; align-items: center; gap: 0.5rem;">
+       <i class="fas fa-magic">
+       </i>
+       Optimize (Prettier)
+      </button>
+      <button class="secondary-btn" onclick="handleAddComments()" style="display: flex; align-items: center; gap: 0.5rem;">
+       <i class="fas fa-comment-medical">
+       </i>
+       Add Comments
+      </button>
+     </div>
+     <div class="editor-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <!-- Input -->
+      <div>
+       <h4 style="margin-bottom: 0.5rem; color: var(--text-gray);">
+        Input Code
+       </h4>
+       <textarea id="code-input" placeholder="Paste your code here..." style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--border); resize: none; font-family: 'Fira Code', monospace; line-height: 1.5; background: #1e1e1e; color: #d4d4d4; font-size: 14px;"></textarea>
+      </div>
+      <!-- Output -->
+      <div>
+       <h4 style="margin-bottom: 0.5rem; color: var(--primary);">
+        Output
+       </h4>
+       <button class="secondary-btn" onclick="copyToClipboard('code-output')" style="float: right; margin-top: -2rem; font-size: 0.8rem; padding: 0.2rem 0.5rem;">
+        Copy
+       </button>
+       <textarea id="code-output" readonly="" style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--primary); resize: none; font-family: 'Fira Code', monospace; line-height: 1.5; background: #1e1e1e; color: #d4d4d4; font-size: 14px;"></textarea>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <footer>
+   <button class="footer-toggle-btn" id="footer-toggle-btn" onclick="toggleFooter()">
+    <span>
+     Explore Convertly
+    </span>
+    <i class="fas fa-chevron-down" id="footer-toggle-icon">
+    </i>
+   </button>
+   <div class="footer-directory" id="footer-directory" style="display: none;">
+    <div class="footer-grid">
+     <div class="footer-column">
+      <h4>
+       Product
+      </h4>
+      <a href="../../index.html#">
+       Uploads
+      </a>
+      <a href="../../logos.html">
+       Logo Remover
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Use Cases
+      </h4>
+      <a href="../../cars.html">
+       Car Background Remover
+      </a>
+      <a href="../../jewelry.html">
+       Jewelry Background Remover
+      </a>
+      <a href="../../shoes.html">
+       Shoe Background Remover
+      </a>
+      <a href="../../furniture.html">
+       Furniture Background Remover
+      </a>
+      <a href="../../animals.html">
+       Pet Background Remover
+      </a>
+      <a href="../../people.html">
+       Portrait Background Remover
+      </a>
+      <a href="../../real-estate.html">
+       Real Estate Background Remover
+      </a>
+      <a href="../../graphics.html">
+       Graphic Background Remover
+      </a>
+      <a href="../../signatures.html">
+       Signature Background Remover
+      </a>
+      <a href="../../amazon.html">
+       Amazon Product Photo Editor
+      </a>
+      <a href="../../shopify.html">
+       Shopify Background Remover
+      </a>
+      <a href="../../ebay.html">
+       eBay Background Remover
+      </a>
+      <a href="../../id-photo.html">
+       Passport &amp; ID Photo Maker
+      </a>
+      <a href="../../profile-picture.html">
+       Profile Picture Maker
+      </a>
+      <a href="../../logos.html">
+       Transparent Logo Maker
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Languages
+      </h4>
+      <a href="../../fr/index.html">
+       Français
+      </a>
+      <a href="../../it/index.html">
+       Italiano
+      </a>
+      <a href="../../es/index.html">
+       Español
+      </a>
+      <a href="../../pt/index.html">
+       Português
+      </a>
+      <a href="../../nl/index.html">
+       Nederlands
+      </a>
+      <a href="../../ru/index.html">
+       Русский
+      </a>
+      <a href="../../de/index.html">
+       Deutsch
+      </a>
+     </div>
+     <div class="footer-column">
+      <h4>
+       Company
+      </h4>
+      <a href="#">
+       Terms
+      </a>
+      <a href="#">
+       Contact
+      </a>
+      <a href="#">
+       Refunds
+      </a>
+      <a href="#">
+       FAQ
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="social-links">
+    <a href="#">
+     <i class="fab fa-twitter">
+     </i>
+    </a>
+    <a href="#">
+     <i class="fab fa-instagram">
+     </i>
+    </a>
+   </div>
+   <p class="copyright">
+    © 2024 CONVERTLY. Created with Love.
+   </p>
+  </footer>
+  <script>
+   function toggleFooter() {
+            const dir = document.getElementById('footer-directory');
+            const icon = document.getElementById('footer-toggle-icon');
+            if (dir.style.display === 'none') {
+                dir.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dir.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+  </script>
+  <script>
+   (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (window.pywebview !== undefined || urlParams.get('app') === 'desktop') {
+                sessionStorage.setItem('isDesktop', 'true');
+            }
+        })();
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
             // setupCodeCommenter(); // logic in CodeCommenter.js or inline below
         });
 
@@ -154,7 +391,6 @@
                 alert('Copied to clipboard!');
             });
         }
-    </script>
-</body>
-
+  </script>
+ </body>
 </html>

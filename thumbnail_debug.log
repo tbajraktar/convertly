@@ -1,0 +1,41 @@
+2026-02-18 22:47:52,077 - ERROR - Prompt Optimization Failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-18 22:47:52,077 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20create%20a%20thumbnail%20about%20mike%20tyson%20fighting%20with%20jake%20paul%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&model=flux&nologo=true&seed=106393
+2026-02-18 22:47:53,293 - ERROR - Flux Failed (530)
+2026-02-18 22:50:15,967 - ERROR - Prompt Optimization Failed: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-18 22:50:15,967 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20A%20futuristic%20city%20with%20flying%20cars%2C%20neon%20lights%2C%204k%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&model=flux&nologo=true&seed=618481
+2026-02-18 22:50:17,391 - ERROR - Flux Failed (530)
+2026-02-18 22:55:46,825 - INFO - Generating thumbnail for prompt: A futuristic city with flying cars, neon lights, 4k
+2026-02-18 22:55:47,043 - ERROR - Prompt Optimization Failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-18 22:55:47,043 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20A%20futuristic%20city%20with%20flying%20cars%2C%20neon%20lights%2C%204k%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&nologo=true&seed=67332&model=flux
+2026-02-18 22:55:48,242 - ERROR - Flux Failed (530)
+2026-02-18 22:59:47,208 - INFO - Generating thumbnail for prompt: A futuristic city with flying cars, neon lights, 4k
+2026-02-18 22:59:47,469 - ERROR - Prompt Optimization Failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-18 22:59:47,474 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20A%20futuristic%20city%20with%20flying%20cars%2C%20neon%20lights%2C%204k%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&nologo=true&seed=180926&model=flux
+2026-02-18 22:59:50,404 - ERROR - Flux Failed (530)
+2026-02-18 23:05:22,577 - INFO - Generating thumbnail for prompt: All AI services busy. Please try a simpler prompt.
+2026-02-18 23:05:23,969 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20All%20AI%20services%20busy.%20Please%20try%20a%20simpler%20prompt.%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&nologo=true&seed=347560&model=flux
+2026-02-18 23:05:26,629 - ERROR - Flux Failed (530)
+2026-02-18 23:05:28,073 - ERROR - Turbo Failed (530)
+2026-02-18 23:05:29,700 - ERROR - Generic Failed (530)
+2026-02-18 23:05:29,700 - INFO - Switching to Lexica Search...
+2026-02-18 23:05:29,700 - INFO - Searching Lexica: https://lexica.art/api/v1/search?q=All%20AI%20services%20busy.%20Please%20try%20a%20simpler%20prompt.
+2026-02-18 23:05:32,545 - ERROR - Lexica Failed (500)
+2026-02-18 23:05:32,549 - INFO - Generating Text Thumbnail...
+2026-02-18 23:05:54,023 - INFO - Generating thumbnail for prompt: creaet a thumbnail about jake paul
+2026-02-18 23:05:54,234 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20creaet%20a%20thumbnail%20about%20jake%20paul%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&nologo=true&seed=516774&model=flux
+2026-02-18 23:05:55,377 - ERROR - Flux Failed (530)
+2026-02-18 23:05:56,490 - ERROR - Turbo Failed (530)
+2026-02-18 23:05:57,573 - ERROR - Generic Failed (530)
+2026-02-18 23:05:57,574 - INFO - Switching to Lexica Search...
+2026-02-18 23:05:57,574 - INFO - Searching Lexica: https://lexica.art/api/v1/search?q=creaet%20a%20thumbnail%20about%20jake%20paul
+2026-02-18 23:05:59,034 - ERROR - Lexica Failed (500)
+2026-02-18 23:05:59,034 - INFO - Generating Text Thumbnail...
+2026-02-18 23:09:23,449 - INFO - Generating thumbnail for prompt: Minecraft epic castle build at sunset with ray tracing shaders, detailed, vibrant colors, 4k render
+2026-02-18 23:09:23,675 - INFO - Requesting URL: https://image.pollinations.ai/prompt/YouTube%20thumbnail%2C%20Minecraft%20epic%20castle%20build%20at%20sunset%20with%20ray%20tracing%20shaders%2C%20detailed%2C%20vibrant%20colors%2C%204k%20render%2C%20high%20quality%2C%204k%2C%20vibrant%20colors%2C%20catchy%2C%20viral%20style?width=1280&height=720&nologo=true&seed=494093&model=flux
+2026-02-18 23:09:25,209 - ERROR - Flux Failed (530)
+2026-02-18 23:09:26,541 - ERROR - Turbo Failed (530)
+2026-02-18 23:09:28,109 - ERROR - Generic Failed (530)
+2026-02-18 23:09:28,109 - INFO - Switching to Lexica Search...
+2026-02-18 23:09:28,111 - INFO - Searching Lexica: https://lexica.art/api/v1/search?q=Minecraft%20epic%20castle%20build%20at%20sunset%20with%20ray%20tracing%20shaders%2C%20detailed%2C%20vibrant%20colors%2C%204k%20render
+2026-02-18 23:09:29,691 - ERROR - Lexica Failed (500)
+2026-02-18 23:09:29,700 - INFO - Generating Text Thumbnail...

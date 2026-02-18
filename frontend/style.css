@@ -1,9 +1,11 @@
 :root {
     --primary-color: #ff2d95;
+    --primary-rgb: 255, 45, 149;
     /* More vibrant Pink */
     --primary-hover: #e62283;
     --primary-light: rgba(255, 45, 149, 0.1);
     --accent-color: #7000ff;
+    --accent-rgb: 112, 0, 255;
     /* Purple accent */
     --text-dark: #0f172a;
     /* Slate 900 */
@@ -292,7 +294,6 @@ nav {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     opacity: 0.8;
 }
-}
 
 .upload-container:hover {
     transform: translateY(-5px);
@@ -446,23 +447,78 @@ nav {
 }
 
 .download-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    /* Adjusted padding */
+    border-radius: 12px;
+    font-weight: 700;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space between text and icon */
+    gap: 10px;
+    height: auto;
+    /* Allow flexible height */
+    min-height: 80px;
+    /* Taller for stacked text */
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: left;
+    white-space: normal;
+    /* Allow wrapping */
+}
+
+/* HD Download (Purple Premium) */
+.download-btn.hd-download {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    color: white !important;
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.download-btn.hd-download:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%) !important;
+    box-shadow: 0 15px 30px rgba(112, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Standard Download (Grey) */
+.download-btn.standard-download {
+    background: #e2e8f0;
+    /* Slate 200 */
+    color: #475569;
+    /* Slate 600 */
+    box-shadow: none;
+}
+
+.download-btn.standard-download:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 .reset-btn {
-    background-color: transparent;
+    background-color: white;
     color: var(--text-gray);
-    border: 1px solid #ddd;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
+    height: auto;
+    min-height: 80px;
+    /* Match download buttons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    white-space: normal;
 }
 
 /* Features */
@@ -745,6 +801,8 @@ footer {
     margin-bottom: 2rem;
     /* Reduced from 3rem */
 }
+
+
 
 .pricing-header h2 {
     font-size: 2rem;
@@ -1626,4 +1684,290 @@ input[type="range"] {
         flex-shrink: 0;
         white-space: nowrap;
     }
+}
+
+/* Dashboard Tool Card Enhancements */
+/* Dashboard Tool Card Enhancements - Premium Style */
+.tool-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: auto;
+    min-height: 240px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    /* Changed to visible for potential popouts, or keep hidden if needed */
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.card-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.tool-card:hover .card-icon {
+    transform: scale(1.1) rotate(3deg);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.3);
+    border-color: transparent;
+}
+
+.tool-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: auto;
+    /* Pushes button to bottom if height is fixed, but here we flex */
+}
+
+.learn-more-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(var(--primary-rgb), 0.3);
+    align-self: flex-start;
+}
+
+.learn-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.4);
+    gap: 10px;
+    filter: brightness(1.1);
+}
+
+.tool-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    margin-top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.tool-details.active {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.tool-details h4 {
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.tool-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: #e2e8f0;
+    /* Grey */
+    color: var(--text-dark);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.tool-action-btn:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Terminal Helper Styles */
+.terminal-input-wrapper {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.terminal-input {
+    width: 100%;
+    padding: 1.5rem;
+    padding-right: 140px;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.terminal-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.os-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.os-option {
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-gray);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+}
+
+.os-option.active {
+    background: var(--text-dark);
+    color: white;
+    border-color: var(--text-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-box {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: #e2e8f0;
+    font-family: 'Fira Code', monospace;
+    position: relative;
+    display: none;
+    text-align: left;
+    width: 100%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.command-text {
+    font-size: 1.2rem;
+    color: #4ade80;
+    margin-bottom: 1rem;
+    display: block;
+    word-break: break-all;
+}
+
+.explanation-text {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-top: 1px solid #334155;
+    padding-top: 1rem;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.risk-safe {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.risk-medium {
+    background: rgba(250, 204, 21, 0.1);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+.risk-high {
+    background: rgba(248, 113, 113, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.generate-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    /* Purple to Pink */
+    color: white;
+    padding: 0 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(var(--primary-rgb), 0.4);
+    filter: brightness(1.1);
 }
