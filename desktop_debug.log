@@ -1,0 +1,223 @@
+INFO:root:Desktop app launching...
+INFO:root:Starting Uvicorn server...
+INFO:root:Creating window...
+INFO:root:Window created object.
+INFO:root:Starting webview loop...
+INFO:root:Application window closed.
+2026-02-15 23:31:05,378 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:31:05,389 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:31:05,428 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:31:05,445 - INFO - Server is up and running!
+2026-02-15 23:31:05,459 - INFO - Creating window...
+2026-02-15 23:31:05,461 - INFO - Window created. Starting loop...
+2026-02-15 23:31:06,507 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:31:06,874 - INFO - Starting Uvicorn...
+2026-02-15 23:31:06,881 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:32:06,007 - DEBUG - Calling on_part_begin with no data
+2026-02-15 23:32:06,008 - DEBUG - Calling on_header_field with data[42:61]
+2026-02-15 23:32:06,009 - DEBUG - Calling on_header_value with data[63:111]
+2026-02-15 23:32:06,009 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:32:06,009 - DEBUG - Calling on_header_field with data[113:125]
+2026-02-15 23:32:06,009 - DEBUG - Calling on_header_value with data[127:137]
+2026-02-15 23:32:06,009 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:32:06,010 - DEBUG - Calling on_headers_finished with no data
+2026-02-15 23:32:06,010 - DEBUG - Calling on_part_data with data[141:81920]
+2026-02-15 23:32:06,011 - DEBUG - Calling on_part_data with data[0:71106]
+2026-02-15 23:32:06,011 - DEBUG - Calling on_part_end with no data
+2026-02-15 23:32:06,011 - DEBUG - Calling on_end with no data
+2026-02-15 23:32:16,810 - DEBUG - before_load event fired. injecting pywebview object
+2026-02-15 23:32:16,811 - DEBUG - Loading JS files from C:\Users\tosib\Desktop\convertly\.venv\Lib\site-packages\webview\js
+2026-02-15 23:32:18,074 - DEBUG - _pywebviewready event fired
+2026-02-15 23:32:18,257 - DEBUG - loaded event fired
+2026-02-15 23:38:31,730 - INFO - Application loop finished.
+2026-02-15 23:38:38,929 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:38:38,940 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:38:38,953 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:38:38,956 - INFO - Server is up and running!
+2026-02-15 23:38:38,956 - INFO - Creating window...
+2026-02-15 23:38:38,956 - ERROR - Critical error in main loop:
+Traceback (most recent call last):
+  File "C:\Users\tosib\Desktop\convertly\desktop_main.py", line 63, in <module>
+    window = webview.create_window(
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_window() got an unexpected keyword argument 'icon'
+2026-02-15 23:38:39,589 - INFO - Starting Uvicorn...
+2026-02-15 23:38:39,599 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:40:03,514 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:40:03,523 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:40:03,533 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:40:03,536 - INFO - Server is up and running!
+2026-02-15 23:40:03,537 - INFO - Creating window...
+2026-02-15 23:40:03,537 - ERROR - Critical error in main loop:
+Traceback (most recent call last):
+  File "C:\Users\tosib\Desktop\convertly\desktop_main.py", line 63, in <module>
+    window = webview.create_window(
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_window() got an unexpected keyword argument 'icon'
+2026-02-15 23:40:04,039 - INFO - Starting Uvicorn...
+2026-02-15 23:40:04,044 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:43:30,112 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:43:30,120 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:43:30,127 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:43:30,128 - INFO - Server is up and running!
+2026-02-15 23:43:30,128 - INFO - Creating window...
+2026-02-15 23:43:30,129 - INFO - Window created. Starting loop...
+2026-02-15 23:43:31,338 - INFO - Starting Uvicorn...
+2026-02-15 23:43:31,447 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:43:31,477 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:44:04,501 - DEBUG - before_load event fired. injecting pywebview object
+2026-02-15 23:44:04,503 - DEBUG - Loading JS files from C:\Users\tosib\Desktop\convertly\.venv\Lib\site-packages\webview\js
+2026-02-15 23:44:04,727 - DEBUG - _pywebviewready event fired
+2026-02-15 23:44:04,887 - DEBUG - loaded event fired
+2026-02-15 23:44:47,483 - INFO - Application loop finished.
+2026-02-15 23:44:51,052 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:44:51,062 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:44:51,075 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:44:51,079 - INFO - Server is up and running!
+2026-02-15 23:44:51,080 - INFO - Creating window...
+2026-02-15 23:44:51,080 - INFO - Window created. Starting loop...
+2026-02-15 23:44:52,037 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:44:52,460 - INFO - Starting Uvicorn...
+2026-02-15 23:44:52,470 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:45:11,850 - DEBUG - Calling on_part_begin with no data
+2026-02-15 23:45:12,042 - DEBUG - Calling on_header_field with data[42:61]
+2026-02-15 23:45:12,172 - DEBUG - Calling on_header_value with data[63:111]
+2026-02-15 23:45:12,238 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:45:12,655 - DEBUG - Calling on_header_field with data[113:125]
+2026-02-15 23:45:12,804 - DEBUG - Calling on_header_value with data[127:137]
+2026-02-15 23:45:13,307 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:45:13,357 - DEBUG - Calling on_headers_finished with no data
+2026-02-15 23:45:13,408 - DEBUG - Calling on_part_data with data[141:130359]
+2026-02-15 23:45:13,444 - DEBUG - Calling on_part_data with data[0:22667]
+2026-02-15 23:45:13,474 - DEBUG - Calling on_part_end with no data
+2026-02-15 23:45:13,488 - DEBUG - Calling on_end with no data
+2026-02-15 23:46:30,709 - INFO - Application loop finished.
+2026-02-15 23:47:19,048 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:47:19,058 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:47:19,071 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:47:19,073 - INFO - Server is up and running!
+2026-02-15 23:47:19,074 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:47:19,074 - INFO - Creating window...
+2026-02-15 23:47:19,075 - INFO - Window created. Starting loop...
+2026-02-15 23:47:20,115 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:47:20,618 - INFO - Starting Uvicorn...
+2026-02-15 23:47:20,628 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:47:42,817 - INFO - Application loop finished.
+2026-02-15 23:48:14,487 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:48:14,496 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:48:14,510 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:48:14,512 - INFO - Server is up and running!
+2026-02-15 23:48:14,512 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:48:14,513 - INFO - Creating window...
+2026-02-15 23:48:14,513 - INFO - Window created. Starting loop...
+2026-02-15 23:48:15,417 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:48:15,789 - INFO - Starting Uvicorn...
+2026-02-15 23:48:15,802 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:48:42,411 - DEBUG - before_load event fired. injecting pywebview object
+2026-02-15 23:48:42,414 - DEBUG - Loading JS files from C:\Users\tosib\Desktop\convertly\.venv\Lib\site-packages\webview\js
+2026-02-15 23:48:42,487 - DEBUG - _pywebviewready event fired
+2026-02-15 23:48:42,491 - DEBUG - loaded event fired
+2026-02-15 23:50:12,639 - DEBUG - Calling on_part_begin with no data
+2026-02-15 23:50:12,663 - DEBUG - Calling on_header_field with data[42:61]
+2026-02-15 23:50:12,666 - DEBUG - Calling on_header_value with data[63:111]
+2026-02-15 23:50:12,667 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:50:12,667 - DEBUG - Calling on_header_field with data[113:125]
+2026-02-15 23:50:12,667 - DEBUG - Calling on_header_value with data[127:137]
+2026-02-15 23:50:12,667 - DEBUG - Calling on_header_end with no data
+2026-02-15 23:50:12,667 - DEBUG - Calling on_headers_finished with no data
+2026-02-15 23:50:12,667 - DEBUG - Calling on_part_data with data[141:130359]
+2026-02-15 23:50:12,667 - DEBUG - Calling on_part_data with data[0:22667]
+2026-02-15 23:50:12,667 - DEBUG - Calling on_part_end with no data
+2026-02-15 23:50:12,667 - DEBUG - Calling on_end with no data
+2026-02-15 23:50:49,748 - INFO - Application loop finished.
+2026-02-15 23:52:22,546 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:52:22,558 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:52:22,565 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:52:22,566 - INFO - Server is up and running!
+2026-02-15 23:52:22,567 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:52:22,570 - INFO - Creating window...
+2026-02-15 23:52:22,571 - INFO - Window created. Starting loop...
+2026-02-15 23:52:23,667 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:52:23,968 - INFO - Starting Uvicorn...
+2026-02-15 23:52:23,974 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:52:24,078 - INFO - Found window handle: 14157782. Setting icon...
+2026-02-15 23:52:24,112 - INFO - Icon set successfully via ctypes.
+2026-02-15 23:52:51,987 - WARNING - Failed to delete user data folder: [WinError 5] Access is denied: 'C:\\Users\\tosib\\AppData\\Local\\Temp\\tmp7zsmivte\\EBWebView\\BrowserMetrics\\BrowserMetrics-69924E28-4260.pma'
+2026-02-15 23:52:52,002 - INFO - Application loop finished.
+2026-02-15 23:53:05,566 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:53:05,566 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:53:05,592 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:53:05,593 - INFO - Server is up and running!
+2026-02-15 23:53:05,594 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:53:05,595 - INFO - Creating window...
+2026-02-15 23:53:05,596 - INFO - Window created. Starting loop...
+2026-02-15 23:53:06,517 - DEBUG - Using WinForms / Chromium
+2026-02-15 23:53:06,892 - INFO - Starting Uvicorn...
+2026-02-15 23:53:06,902 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:53:07,099 - INFO - Found window handle: 1378892. Setting icon...
+2026-02-15 23:53:07,159 - INFO - Icon set successfully via ctypes.
+2026-02-15 23:53:21,151 - DEBUG - before_load event fired. injecting pywebview object
+2026-02-15 23:53:21,176 - DEBUG - Loading JS files from C:\Users\tosib\Desktop\convertly\.venv\Lib\site-packages\webview\js
+2026-02-15 23:53:21,307 - DEBUG - _pywebviewready event fired
+2026-02-15 23:53:21,318 - DEBUG - loaded event fired
+2026-02-15 23:56:20,387 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:56:20,396 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:56:20,402 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:56:20,403 - INFO - Server is up and running!
+2026-02-15 23:56:20,404 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:56:20,405 - INFO - Creating window...
+2026-02-15 23:56:20,406 - INFO - Window created. Starting loop...
+2026-02-15 23:56:21,698 - INFO - Starting Uvicorn...
+2026-02-15 23:56:21,703 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:56:21,906 - INFO - Found window handle: 592062. Setting icon...
+2026-02-15 23:56:22,007 - INFO - Icon set successfully via ctypes.
+2026-02-15 23:58:16,570 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:58:16,587 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:58:16,611 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:58:16,614 - INFO - Server is up and running!
+2026-02-15 23:58:16,616 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:58:16,618 - INFO - Creating window...
+2026-02-15 23:58:16,618 - INFO - Window created. Starting loop...
+2026-02-15 23:58:17,653 - INFO - Found window handle: 592062. Setting icon...
+2026-02-15 23:58:17,705 - INFO - Icon set successfully via ctypes.
+2026-02-15 23:58:20,989 - INFO - Starting Uvicorn...
+2026-02-15 23:58:21,030 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:58:50,678 - WARNING - Failed to delete user data folder: [WinError 5] Access is denied: 'C:\\Users\\tosib\\AppData\\Local\\Temp\\tmp0wq0s18z\\EBWebView\\BrowserMetrics\\BrowserMetrics-69924F15-3310.pma'
+2026-02-15 23:58:51,069 - INFO - Application loop finished.
+2026-02-15 23:58:54,809 - INFO - Application loop finished.
+2026-02-15 23:59:17,687 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:59:17,696 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:59:17,703 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:59:17,714 - INFO - Server is up and running!
+2026-02-15 23:59:17,714 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:59:17,714 - INFO - Creating window...
+2026-02-15 23:59:17,717 - INFO - Window created. Starting loop...
+2026-02-15 23:59:18,989 - INFO - Starting Uvicorn...
+2026-02-15 23:59:19,001 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:59:19,217 - INFO - Found window handle: 1575482. Setting icon...
+2026-02-15 23:59:19,298 - INFO - Icon set successfully via ctypes.
+2026-02-15 23:59:24,251 - INFO - Application loop finished.
+2026-02-15 23:59:28,296 - INFO - --- Launching Convertly Desktop ---
+2026-02-15 23:59:28,301 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-15 23:59:28,313 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-15 23:59:28,314 - INFO - Server is up and running!
+2026-02-15 23:59:28,316 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-15 23:59:28,318 - INFO - Creating window...
+2026-02-15 23:59:28,318 - INFO - Window created. Starting loop...
+2026-02-15 23:59:29,607 - INFO - Starting Uvicorn...
+2026-02-15 23:59:29,617 - DEBUG - Using proactor: IocpProactor
+2026-02-15 23:59:29,838 - INFO - Found window handle: 2951572. Setting icon...
+2026-02-15 23:59:29,899 - INFO - Icon set successfully via ctypes.
+2026-02-16 00:02:29,461 - INFO - Application loop finished.
+2026-02-16 00:04:27,483 - INFO - --- Launching Convertly Desktop ---
+2026-02-16 00:04:27,493 - DEBUG - Starting new HTTP connection (1): 127.0.0.1:8000
+2026-02-16 00:04:27,500 - DEBUG - http://127.0.0.1:8000 "GET / HTTP/1.1" 200 10005
+2026-02-16 00:04:27,503 - INFO - Server is up and running!
+2026-02-16 00:04:27,503 - INFO - Using icon: C:\Users\tosib\Desktop\convertly\frontend\assets\logo.ico
+2026-02-16 00:04:27,505 - INFO - Creating window...
+2026-02-16 00:04:27,505 - INFO - Window created. Starting loop...
+2026-02-16 00:04:29,089 - INFO - Found window handle: 1837614. Setting icon...
+2026-02-16 00:04:29,096 - INFO - Icon set successfully via ctypes.
+2026-02-16 00:04:35,567 - INFO - Starting Uvicorn...
+2026-02-16 00:04:35,611 - DEBUG - Using proactor: IocpProactor
+2026-02-16 00:04:36,211 - INFO - Application loop finished.

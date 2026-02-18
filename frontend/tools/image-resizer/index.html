@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Image Resizer - Convertly</title>
+    <meta name="description" content="Generate social media crops (1:1, 16:9, 9:16) from a single image automatically.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="../../index.html"
+                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
+                <span>CONVERTLY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html" class="nav-btn">Uploads</a>
+            <a href="../../dashboard.html" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools
+                <i class="fas fa-magic"></i></a>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Media Tools</h3>
+            </div>
+            <a href="../../dashboard.html" class="tool-nav-btn"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="../mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3 Extractor</a>
+            <a href="../youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i> YouTube
+                Summary</a>
+            <a href="../audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i> Audio
+                Translator</a>
+            <a href="../image-resizer/index.html" class="tool-nav-btn active"><i class="fas fa-crop-alt"></i> Auto
+                Resizer</a>
+
+            <div class="sidebar-header" style="margin-top: 1rem;">
+                <h3>Utility Tools</h3>
+            </div>
+            <a href="../privacy-redactor/index.html" class="tool-nav-btn"><i class="fas fa-user-secret"></i> Privacy
+                Redactor</a>
+            <a href="../site-cloner/index.html" class="tool-nav-btn"><i class="fas fa-clone"></i> Site Cloner</a>
+            <a href="../code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code Commenter</a>
+            <a href="../terminal-helper/index.html" class="tool-nav-btn"><i class="fas fa-terminal"></i> Terminal
+                Helper</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="tool-header">
+                <h1>Auto Image Resizer</h1>
+                <p>Generate social media crops (1:1, 16:9, etc.) from one image.</p>
+            </div>
+
+            <div class="active-tool-container">
+                <div class="tool-content" style="max-width: 800px; margin: 0 auto;">
+                    <!-- Upload -->
+                    <div class="upload-area" id="img-drop-zone"
+                        style="border: 2px dashed var(--border); padding: 2rem; border-radius: 1rem; text-align: center; margin-bottom: 2rem; transition: all 0.3s ease;">
+                        <i class="fas fa-image"
+                            style="font-size: 3rem; color: var(--text-gray); margin-bottom: 1rem;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Upload Image</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">JPG, PNG, WEBP supported</p>
+                        <input type="file" id="img-upload" accept="image/*" style="display: none;">
+                        <button class="secondary-btn" onclick="document.getElementById('img-upload').click()">Browse
+                            Files</button>
+                    </div>
+
+                    <!-- Editor/Preview -->
+                    <div id="img-editor" style="display: none;">
+                        <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+                            <!-- Preview Canvas -->
+                            <div
+                                style="flex: 2; background: #000; border-radius: 1rem; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+                                <img id="source-image" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            </div>
+
+                            <!-- Controls -->
+                            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                                <h4>Generated Sizes</h4>
+                                <div class="size-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <label class="checkbox-wrapper"
+                                        style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--glass-bg); border-radius: 0.5rem; border: 1px solid var(--border);">
+                                        <input type="checkbox" checked value="1:1" data-label="Instagram Square">
+                                        Instagram (1:1)
+                                    </label>
+                                    <label class="checkbox-wrapper"
+                                        style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--glass-bg); border-radius: 0.5rem; border: 1px solid var(--border);">
+                                        <input type="checkbox" checked value="9:16" data-label="TikTok/Reels"> TikTok /
+                                        Reels (9:16)
+                                    </label>
+                                    <label class="checkbox-wrapper"
+                                        style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--glass-bg); border-radius: 0.5rem; border: 1px solid var(--border);">
+                                        <input type="checkbox" checked value="16:9" data-label="YouTube Thumb"> YouTube
+                                        (16:9)
+                                    </label>
+                                    <label class="checkbox-wrapper"
+                                        style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--glass-bg); border-radius: 0.5rem; border: 1px solid var(--border);">
+                                        <input type="checkbox" value="4:5" data-label="Insta Portrait"> Instagram
+                                        Portrait (4:5)
+                                    </label>
+                                </div>
+                                <button class="primary-btn" onclick="handleGenerateCrops()"
+                                    style="margin-top: auto;">Generated & Download ZIP</button>
+                            </div>
+                        </div>
+
+                        <!-- Generated Previews -->
+                        <div id="generated-previews"
+                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="../../ImageResizer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Image Resizer Logic
+            if (window.setupImageResizer) {
+                setupImageResizer();
+            }
+        });
+
+        // Inline setup if needed or re-use existing logic
+        function setupImageResizer() {
+            const dropZone = document.getElementById('img-drop-zone');
+            const fileInput = document.getElementById('img-upload');
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files[0]) loadEditor(e.target.files[0]);
+            });
+            // Drag and drop listeners... (simplified for brevity, can copy from audio translator if robust needed)
+        }
+
+        function loadEditor(file) {
+            const editor = document.getElementById('img-editor');
+            const dropZone = document.getElementById('img-drop-zone');
+            const sourceImg = document.getElementById('source-image');
+
+            dropZone.style.display = 'none';
+            editor.style.display = 'block';
+
+            sourceImg.src = URL.createObjectURL(file);
+            window.currentImageFile = file;
+        }
+
+        async function handleGenerateCrops() {
+            if (!window.ImageResizer) {
+                alert('Image Resizer Module not loaded');
+                return;
+            }
+
+            const checkboxes = document.querySelectorAll('.size-list input:checked');
+            const configs = Array.from(checkboxes).map(cb => ({
+                aspect: cb.value,
+                label: cb.dataset.label
+            }));
+
+            const resizer = new window.ImageResizer();
+            await resizer.processAndZip(window.currentImageFile, configs);
+        }
+    </script>
+</body>
+
+</html>

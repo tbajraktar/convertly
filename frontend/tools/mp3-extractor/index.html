@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Extractor - Convertly</title>
+    <meta name="description"
+        content="Extract high-quality MP3 audio from MP4 videos instantly. Private, fast, and free.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Tool Specific Overrides if needed */
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="../../index.html"
+                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
+                <span>CONVERTLY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html" class="nav-btn">Uploads</a>
+            <a href="../../dashboard.html" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools
+                <i class="fas fa-magic"></i></a>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Media Tools</h3>
+            </div>
+            <a href="../../dashboard.html" class="tool-nav-btn"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="../mp3-extractor/index.html" class="tool-nav-btn active"><i class="fas fa-music"></i> MP3
+                Extractor</a>
+            <a href="../youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i> YouTube
+                Summary</a>
+            <a href="../audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i> Audio
+                Translator</a>
+            <a href="../image-resizer/index.html" class="tool-nav-btn"><i class="fas fa-crop-alt"></i> Auto Resizer</a>
+
+            <div class="sidebar-header" style="margin-top: 1rem;">
+                <h3>Utility Tools</h3>
+            </div>
+            <a href="../privacy-redactor/index.html" class="tool-nav-btn"><i class="fas fa-user-secret"></i> Privacy
+                Redactor</a>
+            <a href="../site-cloner/index.html" class="tool-nav-btn"><i class="fas fa-clone"></i> Site Cloner</a>
+            <a href="../code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code Commenter</a>
+            <a href="../terminal-helper/index.html" class="tool-nav-btn"><i class="fas fa-terminal"></i> Terminal
+                Helper</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="tool-header">
+                <h1>MP3 Extractor</h1>
+                <p>Extract high-quality audio from MP4 files instantly.</p>
+            </div>
+
+            <div class="active-tool-container">
+                <!-- Tool UI -->
+                <div class="upload-container" style="max-width: 600px; margin: 0 auto;">
+                    <div class="upload-content" id="mp3-upload-content">
+                        <div class="upload-icon"><i class="fas fa-video"></i></div>
+                        <h3>Upload MP4 Video</h3>
+                        <p class="drop-text">Drag & drop or click to upload</p>
+                        <button class="upload-btn" onclick="document.getElementById('mp4-input').click()">Select
+                            Video</button>
+                        <input type="file" id="mp4-input" accept="video/mp4" hidden onchange="handleMp4Upload(this)">
+                    </div>
+
+                    <!-- Processing State -->
+                    <div class="processing-state" id="mp3-processing"
+                        style="display: none; flex-direction: column; align-items: center; gap: 1rem;">
+                        <div class="spinner"></div>
+                        <p>Extracting Audio...</p>
+                    </div>
+
+                    <!-- Result State -->
+                    <div class="result-state" id="mp3-result" style="display: none; text-align: center;">
+                        <div
+                            style="background: #dcfce7; color: #16a34a; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1rem auto;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3>Extraction Complete!</h3>
+                        <a id="mp3-download-link" class="primary-btn"
+                            style="margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem;" href="#"
+                            download>
+                            <i class="fas fa-download"></i> Download MP3
+                        </a>
+                        <button class="secondary-btn" onclick="location.reload()"
+                            style="margin-top: 1rem; margin-left: 0.5rem;">Convert Another</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function handleMp4Upload(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            // Show Processing
+            document.getElementById('mp3-upload-content').style.display = 'none';
+            document.getElementById('mp3-processing').style.display = 'flex';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                // Determine API URL (Local vs Prod)
+                const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                    ? 'http://127.0.0.1:8000/api/mp3-extractor'
+                    : '/api/mp3-extractor';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error('Extraction failed');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                // Show Result
+                document.getElementById('mp3-processing').style.display = 'none';
+                const resultDiv = document.getElementById('mp3-result');
+                resultDiv.style.display = 'block';
+
+                const downloadLink = document.getElementById('mp3-download-link');
+                downloadLink.href = url;
+                downloadLink.download = file.name.replace('.mp4', '.mp3');
+
+            } catch (error) {
+                console.error(error);
+                alert('Error extracting audio. Please try again.');
+                location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>

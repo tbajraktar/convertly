@@ -10,3 +10,8 @@ env/
 .vscode/
 .idea/
 .DS_Store
+
+# Build artifacts
+dist/
+build/
+*.spec

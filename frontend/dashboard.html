@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Utility Dashboard | Convertly</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .active-tool-container {
+            display: none;
+            /* Removed for MPA */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
+    </div>
+
+    <!-- Reused Nav -->
+    <nav>
+        <div class="logo">
+            <a href="index.html"
+                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
+                <span>CONVERTLY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Uploads</a>
+            <a href="#" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools <i
+                    class="fas fa-magic"></i></a>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Media Tools</h3>
+            </div>
+            <a href="dashboard.html" class="tool-nav-btn active"><i class="fas fa-th-large"></i>
+                Dashboard</a>
+            <a href="tools/mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3
+                Extractor</a>
+            <a href="tools/youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i>
+                YouTube Summary</a>
+            <a href="tools/audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i>
+                Audio Translator</a>
+            <a href="tools/image-resizer/index.html" class="tool-nav-btn"><i class="fas fa-crop-alt"></i> Auto
+                Resizer</a>
+
+            <div class="sidebar-header" style="margin-top: 1rem;">
+                <h3>Utility Tools</h3>
+            </div>
+            <a href="tools/privacy-redactor/index.html" class="tool-nav-btn"><i class="fas fa-user-secret"></i>
+                Privacy Redactor</a>
+            <a href="tools/site-cloner/index.html" class="tool-nav-btn"><i class="fas fa-clone"></i> Site
+                Cloner</a>
+            <a href="tools/code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code
+                Commenter</a>
+        </aside>
+
+        <!-- Content -->
+        <main class="dashboard-content" id="main-content">
+            <!-- Default Dashboard View (Grid) -->
+            <div id="view-dashboard">
+                <div class="tool-header">
+                    <h1>AI Utility Dashboard</h1>
+                    <p>Select a tool to automate your workflow.</p>
+                </div>
+
+                <div class="tool-grid">
+                    <!-- MP3 Extractor -->
+                    <a href="tools/mp3-extractor/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-music"></i></div>
+                        <h3>MP3 Extractor</h3>
+                        <p>Strip high-quality audio from your MP4 videos instantly.</p>
+                    </a>
+
+                    <!-- YouTube Summary -->
+                    <a href="tools/youtube-summary/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                        <h3>YouTube Summary</h3>
+                        <p>Transcribe and summarize YouTube videos with AI.</p>
+                    </a>
+
+                    <!-- Audio Translator -->
+                    <a href="tools/audio-translator/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-language"></i></div>
+                        <h3>Audio Translator</h3>
+                        <p>Convert audio to text and translate it into any language.</p>
+                    </a>
+
+                    <!-- Auto Resizer -->
+                    <a href="tools/image-resizer/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-crop-alt"></i></div>
+                        <h3>Auto Resizer</h3>
+                        <p>Generate social media crops (1:1, 16:9, etc.) from one image.</p>
+                    </a>
+
+                    <!-- Privacy Redactor -->
+                    <a href="tools/privacy-redactor/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+                        <h3>Privacy Redactor</h3>
+                        <p>Automatically blur emails, names, and phones from docs.</p>
+                    </a>
+
+                    <!-- Site Cloner -->
+                    <a href="tools/site-cloner/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-clone"></i></div>
+                        <h3>Site Cloner</h3>
+                        <p>Clone a URL's structure into a clean React component.</p>
+                    </a>
+
+                    <!-- Code Commenter -->
+                    <a href="tools/code-commenter/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-code"></i></div>
+                        <h3>Code Commenter</h3>
+                        <p>Generate professional JSDoc comments for your snippets.</p>
+                    </a>
+
+                    <!-- Terminal Helper -->
+                    <a href="tools/terminal-helper/index.html" class="tool-card"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card-icon"><i class="fas fa-terminal"></i></div>
+                        <h3>Terminal Helper</h3>
+                        <p>Translate natural language into safe shell commands.</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

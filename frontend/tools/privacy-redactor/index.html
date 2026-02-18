@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Redactor - Convertly</title>
+    <meta name="description"
+        content="Automatically redact sensitive information like emails, phone numbers, and names from text.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3" style="top: 80%; right: 10%;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="../../index.html"
+                style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <div class="logo-icon"><i class="fas fa-layer-group"></i></div>
+                <span>CONVERTLY</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="../../index.html" class="nav-btn">Uploads</a>
+            <a href="../../dashboard.html" class="nav-btn active" style="background: rgba(15, 23, 42, 0.05);">AI Tools
+                <i class="fas fa-magic"></i></a>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Media Tools</h3>
+            </div>
+            <a href="../../dashboard.html" class="tool-nav-btn"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="../mp3-extractor/index.html" class="tool-nav-btn"><i class="fas fa-music"></i> MP3 Extractor</a>
+            <a href="../youtube-summary/index.html" class="tool-nav-btn"><i class="fab fa-youtube"></i> YouTube
+                Summary</a>
+            <a href="../audio-translator/index.html" class="tool-nav-btn"><i class="fas fa-language"></i> Audio
+                Translator</a>
+            <a href="../image-resizer/index.html" class="tool-nav-btn"><i class="fas fa-crop-alt"></i> Auto Resizer</a>
+
+            <div class="sidebar-header" style="margin-top: 1rem;">
+                <h3>Utility Tools</h3>
+            </div>
+            <a href="../privacy-redactor/index.html" class="tool-nav-btn active"><i class="fas fa-user-secret"></i>
+                Privacy Redactor</a>
+            <a href="../site-cloner/index.html" class="tool-nav-btn"><i class="fas fa-clone"></i> Site Cloner</a>
+            <a href="../code-commenter/index.html" class="tool-nav-btn"><i class="fas fa-code"></i> Code Commenter</a>
+            <a href="../terminal-helper/index.html" class="tool-nav-btn"><i class="fas fa-terminal"></i> Terminal
+                Helper</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="tool-header">
+                <h1>Privacy Redactor</h1>
+                <p>Automatically blur emails, names, and phones from docs.</p>
+            </div>
+
+            <div class="active-tool-container">
+                <div class="tool-content" style="max-width: 1000px; margin: 0 auto;">
+                    <!-- Controls -->
+                    <div class="controls-bar"
+                        style="display: flex; gap: 2rem; margin-bottom: 2rem; align-items: center; background: var(--glass-bg); padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--border);">
+                        <div style="flex: 1;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-gray); font-weight: 500;">Redaction
+                                Intensity</label>
+                            <input type="range" id="redact-intensity" min="1" max="3" value="2"
+                                style="width: 100%; accent-color: var(--primary);">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-gray); margin-top: 0.25rem;">
+                                <span>Low (Email/CC)</span>
+                                <span>Medium (+Phone/Addr)</span>
+                                <span>High (+Names/Dates)</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="show-original" onchange="toggleOriginal()">
+                            <label for="show-original" style="cursor: pointer; color: var(--text);">Compare
+                                Original</label>
+                        </div>
+                    </div>
+
+                    <div class="editor-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <!-- Input -->
+                        <div>
+                            <h4 style="margin-bottom: 1rem; color: var(--text-gray);">Input Text</h4>
+                            <textarea id="redact-input" placeholder="Paste text here to redact..."
+                                style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--border); resize: none; font-family: monospace; line-height: 1.6;"></textarea>
+                        </div>
+
+                        <!-- Output -->
+                        <div>
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Redacted Output</h4>
+                            <button class="secondary-btn" onclick="copyToClipboard('redact-output')"
+                                style="float: right; margin-top: -2.5rem; font-size: 0.8rem;">Copy</button>
+                            <div id="redact-output"
+                                style="width: 100%; height: 500px; padding: 1rem; border-radius: 1rem; border: 1px solid var(--primary); background: #f8fafc; font-family: monospace; white-space: pre-wrap; overflow-y: auto; line-height: 1.6;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fixed Original View (Hidden by default) -->
+                    <div id="original-overlay"
+                        style="display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.95); z-index: 10; padding: 2rem;">
+                        <button onclick="toggleOriginal()" style="position: absolute; top: 1rem; right: 1rem;"
+                            class="secondary-btn">Close</button>
+                        <h3>Original Text</h3>
+                        <div id="original-text-display"
+                            style="white-space: pre-wrap; margin-top: 1rem; font-family: monospace;"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://unpkg.com/compromise"></script>
+    <script src="../../PrivacyRedactor.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupPrivacyRedactor();
+        });
+
+        function setupPrivacyRedactor() {
+            const input = document.getElementById('redact-input');
+            const intensitySlider = document.getElementById('redact-intensity');
+
+            input.addEventListener('input', runRedaction);
+            intensitySlider.addEventListener('input', runRedaction);
+
+            async function runRedaction() {
+                const text = input.value;
+                const intensity = mapIntensity(intensitySlider.value);
+
+                if (window.PrivacyRedactor) {
+                    const redacted = await window.PrivacyRedactor.redact(text, intensity);
+                    // Render HTML safely
+                    document.getElementById('redact-output').innerHTML = redacted;
+                }
+            }
+        }
+
+        function mapIntensity(val) {
+            switch (val) {
+                case '1': return 'low';
+                case '2': return 'medium';
+                case '3': return 'high';
+                default: return 'medium';
+            }
+        }
+
+        function toggleOriginal() {
+            const overlay = document.getElementById('original-overlay');
+            const show = document.getElementById('show-original').checked;
+
+            if (show) {
+                document.getElementById('original-text-display').innerText = document.getElementById('redact-input').value;
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+
+</html>

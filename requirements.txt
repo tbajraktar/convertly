@@ -7,3 +7,6 @@ pillow
 numpy<2.4.0
 onnxruntime
 aiofiles
+moviepy
+youtube-transcript-api
+deep_translator
