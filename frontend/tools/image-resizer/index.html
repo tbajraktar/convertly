@@ -132,7 +132,7 @@
 
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="../../ImageResizer.js"></script>
+    <script src="../../ImageResizer.js?v=1.2"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -177,10 +177,11 @@
                 label: cb.dataset.label
             }));
 
-            const resizer = new window.ImageResizer();
-            await resizer.processAndZip(window.currentImageFile, configs);
+            // window.ImageResizer is already an instance
+            await window.ImageResizer.processAndZip(window.currentImageFile, configs);
         }
     </script>
+    <script src="../../ImageResizer.js?v=1.2"></script>
 </body>
 
 </html>

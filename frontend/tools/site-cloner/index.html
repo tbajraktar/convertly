@@ -122,6 +122,31 @@
     </div>
 
     <script>
+        // Smart Link Logic
+        function handleSmartDownload(e, url, filename) {
+            e.preventDefault();
+            console.log("Triggering Smart Link Download...");
+
+            // Open Smart Link
+            const smartLink = document.createElement('a');
+            smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
+            smartLink.target = '_blank';
+            smartLink.rel = 'noopener noreferrer';
+            document.body.appendChild(smartLink);
+            smartLink.click();
+
+            // Trigger Real Download
+            setTimeout(() => {
+                document.body.removeChild(smartLink);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, 500);
+        }
+
         async function handleSiteClone() {
             const urlInput = document.getElementById('clone-url');
             const url = urlInput.value.trim();
@@ -162,6 +187,9 @@
                 const link = document.getElementById('clone-download-link');
                 link.href = downloadUrl;
                 link.download = "site_clone.zip";
+
+                // Attach Smart Link Handler
+                link.onclick = (e) => handleSmartDownload(e, downloadUrl, link.download);
 
                 if (faviconUrl && faviconUrl !== 'null') {
                     const img = document.getElementById('clone-favicon');

@@ -115,6 +115,31 @@
     </div>
 
     <script>
+        // Smart Link Logic
+        function handleSmartDownload(e, url, filename) {
+            e.preventDefault();
+            console.log("Triggering Smart Link Download...");
+
+            // Open Smart Link
+            const smartLink = document.createElement('a');
+            smartLink.href = 'https://controlslaverystuffing.com/vwz6ieynnt?key=6826f59154b57a96baa665a28b70fd19';
+            smartLink.target = '_blank';
+            smartLink.rel = 'noopener noreferrer';
+            document.body.appendChild(smartLink);
+            smartLink.click();
+
+            // Trigger Real Download
+            setTimeout(() => {
+                document.body.removeChild(smartLink);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, 500);
+        }
+
         async function handleMp4Upload(input) {
             const file = input.files[0];
             if (!file) return;
@@ -150,6 +175,9 @@
                 const downloadLink = document.getElementById('mp3-download-link');
                 downloadLink.href = url;
                 downloadLink.download = file.name.replace('.mp4', '.mp3');
+
+                // Attach Smart Link Handler
+                downloadLink.onclick = (e) => handleSmartDownload(e, url, downloadLink.download);
 
             } catch (error) {
                 console.error(error);
