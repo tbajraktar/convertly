@@ -183,6 +183,25 @@ class ImageEditor {
             if (document.getElementById('download-btn')) document.getElementById('download-btn').style.display = 'inline-flex';
             if (document.getElementById('download-hd-btn')) document.getElementById('download-hd-btn').style.display = 'none';
             if (document.getElementById('download-std-btn')) document.getElementById('download-std-btn').style.display = 'none';
+
+            // Hide AI Tools Link on Desktop Only
+            const aiToolsLink = document.getElementById('ai-tools-link');
+            if (aiToolsLink) aiToolsLink.style.display = 'none';
+
+            // Hide Download App Link on Desktop Only
+            const downloadAppLink = document.getElementById('download-app-link');
+            if (downloadAppLink) downloadAppLink.style.display = 'none';
+        }
+
+        // --- NEW LOGIC: Manage File Upload Limits Base on Environment ---
+        const fileInput = document.getElementById('file-input');
+        const uploadBtn = document.querySelector('.upload-btn');
+        if (isDesktopApp) {
+            fileInput.setAttribute('multiple', '');
+            if (uploadBtn) uploadBtn.innerText = 'Upload Image(s)';
+        } else {
+            fileInput.removeAttribute('multiple');
+            if (uploadBtn) uploadBtn.innerText = 'Upload Image';
         }
 
         return isDesktopApp;
@@ -423,23 +442,28 @@ uploadContainer.addEventListener('drop', (e) => {
 
     if (files.length === 0) return;
 
-    if (files.length === 1) {
-        handleFile(files[0]);
+    // Determine current environment manually since we are outside the class
+    const isDesktopApp = sessionStorage.getItem('isDesktop') === 'true' || new URLSearchParams(window.location.search).get('app') === 'desktop';
+
+    if (!isDesktopApp || files.length === 1) {
+        handleFile(files[0]); // Force single file for Web regardless of drop count
     } else {
-        startBatch(files);
+        startBatch(files); // Deskto only reaches here
     }
 });
 
 fileInput.addEventListener('change', (e) => {
     const files = Array.from(e.target.files);
-    if (files.length === 1) {
-        handleFile(files[0]);
+    const isDesktopApp = sessionStorage.getItem('isDesktop') === 'true' || new URLSearchParams(window.location.search).get('app') === 'desktop';
+
+    if (!isDesktopApp || files.length === 1) {
+        // Force single file for web
+        if (files[0]) handleFile(files[0]);
     } else if (files.length > 1) {
         startBatch(files);
     }
 });
-// Enable multiple file selection
-fileInput.setAttribute('multiple', '');
+// (The multiple attribute is now managed dynamically in checkEnvironment)
 
 
 function startBatch(files) {
@@ -463,7 +487,12 @@ function startBatch(files) {
     processBatchQueue();
 }
 
+let batchZip = null; // Store the zip object globally for the session
+
 async function processBatchQueue() {
+    batchZip = new JSZip(); // initialize new zip instance
+    let processedCount = 0;
+
     for (let i = 0; i < batchQueue.length; i++) {
         const file = batchQueue[i];
         const statusEl = document.getElementById(`status-${i}`);
@@ -473,22 +502,44 @@ async function processBatchQueue() {
 
         try {
             const blob = await processFile(file);
-            const url = URL.createObjectURL(blob);
 
-            // Auto Download
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `convertly-batch-${i}.png`;
-            a.click();
+            // Add to Zip
+            const fileName = file.name.replace(/\.[^/.]+$/, "") + "_convertly.png";
+            batchZip.file(fileName, blob);
+            processedCount++;
 
-            statusEl.innerText = "Downloaded";
+            statusEl.innerText = "Done";
             statusEl.classList.add("status-success");
         } catch (err) {
             statusEl.innerText = "Error";
             statusEl.classList.add("status-error");
         }
     }
+
+    // Once all are done, if any succeeded, show the ZIP button
+    if (processedCount > 0) {
+        document.getElementById('batch-download-zip-btn').style.display = 'inline-flex';
+    }
 }
+
+// Bind ZIP download click
+document.getElementById('batch-download-zip-btn').addEventListener('click', async () => {
+    if (!batchZip) return;
+    const btn = document.getElementById('batch-download-zip-btn');
+    const originalText = btn.innerHTML;
+    btn.innerText = "Zipping...";
+
+    const content = await batchZip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(content);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Convertly_Batch_${Date.now()}.zip`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+    btn.innerHTML = originalText;
+});
 
 async function processFile(file) {
     const formData = new FormData();
@@ -508,6 +559,8 @@ document.getElementById('batch-rest-btn').onclick = () => {
     batchContainer.style.display = 'none';
     uploadContent.style.display = 'flex';
     fileInput.value = '';
+    document.getElementById('batch-download-zip-btn').style.display = 'none'; // reset zip button
+    batchZip = null; // clear memory
 };
 
 document.getElementById('reset-btn').onclick = () => {

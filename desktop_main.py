@@ -139,7 +139,7 @@ if __name__ == '__main__':
     try:
         window = webview.create_window(
             'Convertly - Background Remover', 
-            URL, 
+            f"{URL}&cb={int(time.time())}", 
             width=1200, 
             height=800,
             resizable=True
